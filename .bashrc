@@ -154,7 +154,6 @@ alias doccat='odt2txt'
 alias hst="history | fzf --tac | cut -c 8- | sed -Ez '$ s/\n+$//' | tr -d '\n' | xclip -sel c"
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME'
-alias bin.github='/usr/bin/git --git-dir=$HOME/bin/bin.git --work-tree=$HOME/bin'
 rofi-launcher()
 {
     rofi -modi drun -show drun -run-shell-command \

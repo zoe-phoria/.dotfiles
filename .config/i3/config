@@ -124,8 +124,9 @@ exec --no-startup-id setxkbmap us -variant intl
     bindsym $mod+Shift+Right move right
     
 
-    # Alt+Tab to open rofi window mode
+    # Alt+Tab or Super+Tab(mouse thumb button) to open rofi window mode
     bindsym Mod1+Tab exec rofi -mode window -show window
+    bindsym $mod+Tab exec rofi -mode window -show window
 
 #
 # Workspaces:

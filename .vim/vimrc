@@ -16,9 +16,6 @@ set number
 " encoding
 set encoding=UTF-8
 
-" disable wrapping
-" set nowrap
-
 " maximum textwidth (1440p)
 " set textwidth=256
 

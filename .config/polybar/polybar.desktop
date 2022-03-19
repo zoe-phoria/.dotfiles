@@ -1,0 +1,5 @@
+[Desktop Entry]
+Type=Application
+Exec=/bin/bash /home/zoe/.config/polybar/launch.sh
+Hidden=false
+Name=Polybar

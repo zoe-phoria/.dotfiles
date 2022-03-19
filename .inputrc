@@ -1,0 +1,42 @@
+# case insensitive tab completion
+set completion-ignore-case on
+
+# set readline mode to vi mode
+set editing-mode vi
+
+# readline shortcuts
+$if mode=vi
+    set keymap vi-command
+    # vi-command mode shortcuts
+    Control-l: clear-screen
+
+    set keymap vi-insert
+    # vi-insert mode shortcuts
+    Control-l: clear-screen 
+$endif
+
+# mode indicator
+
+# show mode indicator
+set show-mode-in-prompt on
+# color and text for COMMAND mode (i.e. vim NORMAL mode)
+set vi-cmd-mode-string "\1\e[48;5;148m\2\1\e[1;38;5;022m\2 NORMAL \1\e[1 q\2\1\e[0m\2"
+# color and text for INSERT mode
+set vi-ins-mode-string "\1\e[48;5;024m\2\1\e[1;38;5;015m\2 INSERT \1\e[1 q\2\1\e[0m\2"
+
+# explaining the text and color options
+# \1 open option
+# \2 close option
+# \e[ open color option
+# 48;5 256-color-palette
+# 148m background color 148
+# 1; bold
+# 022m foreground color 022
+# NORMAL text to display 
+# \1\e[48;5;236m\2 background color for following space
+# \1\e[- q\2  end
+# 
+# \1\e[48;5;148m\2\1\e[1;38;5;022m\2 NORMAL \1\e[48;5;236m\2 \1\e[0m q\2
+#      ^                ^              ^           ^            ^
+#   bg color         fg color        text      bg color      reset bg color and end
+#

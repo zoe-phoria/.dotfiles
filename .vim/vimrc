@@ -1,0 +1,210 @@
+""""""""""""""""""""""""""""""
+" .vimrc by Zoe Luisa Müller "
+""""""""""""""""""""""""""""""
+
+set nocompatible
+
+" set window title
+set title
+
+" disable special characters like $ at eol
+set nolist
+
+" show lines
+set number
+
+" encoding
+set encoding=UTF-8
+
+" disable wrapping
+" set nowrap
+
+" maximum textwidth (1440p)
+" set textwidth=256
+
+" enable mouse
+set mouse=a
+
+" speed up scrolling
+set ttyfast
+
+" fix some backspace inconveniences
+set backspace=indent,eol,start
+
+" enable syntax highlighting
+syntax on
+
+" add <> to matchpairs, jump between them with %
+set matchpairs+=<:>
+
+" set <leader> to ,
+let mapleader = ","
+
+" nerdtree shortcut
+command T NERDTree
+map <leader>t :NERDTree<CR>
+
+" terminal shortcut and size
+command B terminal
+map <leader>b :terminal<CR>
+set termwinsize=5x0
+
+" search
+" highlight
+set hlsearch
+" search as you type
+set incsearch
+" ignore case
+set ignorecase
+" dont ignore case when uppercase is used
+set smartcase
+" remove search highlighting
+map \ :nohlsearch<CR>:call minimap#vim#ClearColorSearch()<CR>
+
+" folding
+command Fold setlocal foldmethod=syntax
+command Foldoff setlocal foldmethod=marker
+
+" fzf on current buffer
+command! -nargs=* F call fzf#vim#lines(<q-args>)
+map <leader>f :F<CR>
+
+" splits
+set splitbelow
+map <leader>s :vsplit<CR>
+map <leader>S :split<CR>
+
+" persistent undo
+if !isdirectory($HOME."/.dotfiles/vim/undodir")
+    call mkdir($HOME."/.dotfiles/vim/undodir", "p")
+endif
+
+set undodir=~/.vim/undodir
+set undofile
+set undolevels=1000 "maximum number of changes that can be undone
+set undoreload=10000 "maximum number lines to save for undo on a buffer reload
+
+" colorscheme
+colorscheme ron
+
+" seperator style
+set fillchars+=vert:\ 
+highlight VertSplit ctermbg=DarkGray ctermfg=DarkGray
+
+" scrolling
+inoremap <C-E> <C-X><C-E> " scrolling on insert
+inoremap <C-Y> <C-X><C-Y>
+set scrolloff=3 " keep three lines between the cursor and the edge of the screen
+set sidescrolloff=3
+
+" vim tabs
+nnoremap gn :tabnew<cr>
+nnoremap gc :tabclose<cr>
+
+" tabs and spaces
+set tabstop=4
+set shiftwidth=4
+set expandtab
+set shiftround
+set smarttab
+set autoindent
+
+" syntastic settings
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
+
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
+
+" NERDcommenter
+filetype plugin on
+" Use compact syntax for prettified multi-line comments
+let g:NERDCompactSexyComs = 1
+
+" async update for sy
+" default updatetime 4000ms is not good for async update
+set updatetime=100
+
+" ensure lightline.vim being used
+set laststatus=2
+" disable native status bar in favor of lightline
+set noshowmode
+" lightline color scheme
+let g:lightline = {'colorscheme': 'default', }
+
+" minimap.vim config
+let g:minimap_width=15
+let g:minimap_auto_start=1
+let g:minimap_auto_start_win_enter=1
+let g:minimap_highlight_search=1
+let g:minimap_highlight_range=1
+map <Leader>mm :MinimapToggle<CR>
+
+" NERDTree settings
+let g:NERDTreeDirArrowExpandable = '▸'
+let g:NERDTreeDirArrowCollapsible = '▾'
+let g:NERDTreeWinSize=21
+" autostart NERDTree
+" autocmd VimEnter * NERDTree
+" mirror NERDTree across Tabs
+
+" indentline config
+let g:indentLine_char = '┊'
+
+" vim-plug autoinstall
+if empty(glob('~/.vim/autoload/plug.vim'))
+    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+" rainbow config
+" toggle with :RainbowToggle or <leader>r
+map <leader>r :RainbowToggle<CR> 
+let g:rainbow_active = 0
+let g:rainbow_conf = {
+\	'ctermfgs': ['gray', 'magenta', 'cyan', 'yellow', 'green'],
+\	'cterms': [''],
+\	'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold', 'start=/[/ end=/]/ fold',],
+\	'separately': {
+\		'*': {},
+\		'vim': {
+\			'parentheses_options': 'containedin=vimFuncBody',
+\		},
+\   }
+\}
+
+" vim-plug
+call plug#begin('~/.vim/plugged')
+Plug 'preservim/nerdtree'
+Plug 'itchyny/lightline.vim'
+Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-surround'
+Plug 'ackyshake/VimCompletesMe'
+Plug 'sheerun/vim-polyglot'
+" Plug 'vim-syntastic/syntastic'
+Plug 'preservim/nerdcommenter'
+if has('nvim') || has('patch-8.0.902')
+    Plug 'mhinz/vim-signify'
+else
+    Plug 'mhinz/vim-signify', { 'branch': 'legacy' }
+endif
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'machakann/vim-highlightedyank'
+Plug 'stevearc/vim-arduino'
+Plug 'vimwiki/vimwiki'
+Plug 'jiangmiao/auto-pairs'
+Plug 'neoclide/coc.nvim', { 'branch' : 'release' }
+Plug 'yggdroot/indentline'
+if !(&diff)     " disable minimap in diff mode
+    Plug 'wfxr/minimap.vim'
+endif
+Plug 'fladson/vim-kitty'
+Plug 'lambdalisue/vim-pager'
+" Plug 'mhinz/vim-startify'
+Plug 'luochen1990/rainbow'
+call plug#end()

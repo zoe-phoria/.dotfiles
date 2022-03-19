@@ -1,0 +1,273 @@
+#                                                                                            
+#            .--,-``-.                                                                       
+#           /   /     '.                                                                     
+#   ,--,   / ../        ;                                          .--.,   ,--,              
+# ,--.'|   \ ``\  .`-    '                    ,---.        ,---, ,--.'  \,--.'|              
+# |  |,     \___\/   \   :                   '   ,'\   ,-+-. /  ||  | /\/|  |,     ,----._,. 
+# `--'_          \   :   |           ,---.  /   /   | ,--.'|'   |:  : :  `--'_    /   /  ' / 
+# ,' ,'|         /  /   /           /     \.   ; ,. :|   |  ,"' |:  | |-,,' ,'|  |   :     | 
+# '  | |         \  \   \          /    / ''   | |: :|   | /  | ||  : :/|'  | |  |   | .\  . 
+# |  | :     ___ /   :   |        .    ' / '   | .; :|   | |  | ||  |  .'|  | :  .   ; ';  | 
+# '  : |__  /   /\   /   :        '   ; :__|   :    ||   | |  |/ '  : '  '  : |__'   .   . | 
+# |  | '.'|/ ,,/  ',-    .        '   | '.'|\   \  / |   | |--'  |  | |  |  | '.'|`---`-'| | 
+# ;  :    ;\ ''\        ;         |   :    : `----'  |   |/      |  : \  ;  :    ;.'__/\_: | 
+# |  ,   /  \   \     .'           \   \  /          '---'       |  |,'  |  ,   / |   :    : 
+#  ---`-'    `--`-,,-'              `----'                       `--'     ---`-'   \   \  /  
+#                                                                                   `--`-'   
+# i3 config by zoe
+# Read `man i3` for a complete reference.
+
+#
+# Variables
+#
+
+# Logo key. Use Mod1 for Alt.
+set $mod Mod4
+
+# Home row direction keys, like vim
+set $left h
+set $down j
+set $up k
+set $right l
+
+# Your preferred terminal emulator, browser, file manager
+set $term kitty
+set $file-manager nautilus -w
+set $browser firefox
+
+# Your preferred application launcher
+set $menu rofi -modi drun -show drun
+
+# start autostart stuff
+exec --no-startup-id dex --autostart --environment i3
+# start polybar
+exec --no-startup-id /bin/bash /home/zoe/.config/polybar/launch.sh
+# start picom window compositor
+exec --no-startup-id picom
+# start feh background
+exec --no-startup-id feh --bg-fill /home/zoe/wallpaper.jpg
+# disable x screensaver
+exec --no-startup-id xset -s off
+# set resolution with xrandr
+exec --no-startup-id xrandr --output DP-2 --mode 2560x1440 --rate 144.00
+exec --no-startup-id xrandr --output DP-4 --mode 2560x1440 --rate 60.00 --right-of DP-2
+# set keymap
+exec --no-startup-id setxkbmap us -variant intl
+
+#
+# Key bindings
+#
+
+#
+# Basics:
+#
+
+    # Start a terminal
+    bindsym $mod+Return exec $term
+
+    # Kill focused window
+    bindsym $mod+q kill
+
+    # Start your launcher
+    bindsym $mod+d exec $menu
+
+    # Start preferred web browser
+    bindsym $mod+f exec $browser
+
+    # Start preferred file manager
+    bindsym $mod+e exec $file-manager
+
+    # Drag floating windows by holding down $mod and left mouse button.
+    # Resize them with right mouse button + $mod.
+    # Despite the name, also works for non-floating windows.
+    # Change normal to inverse to use left mouse button for resizing and right
+    # mouse button for dragging.
+    floating_modifier $mod
+
+    # Reload the configuration file/Restart i3
+    bindsym $mod+Shift+c reload
+    bindsym $mod+Shift+p restart
+
+    # Exit i3 (logs you out of your X session)
+    bindsym $mod+Shift+q exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+
+    # take a screenshot
+    bindsym Print exec "gnome-screenshot -i"
+
+#
+# Moving around:
+#
+    
+    # Move your focus around
+    bindsym $mod+$left focus left
+    bindsym $mod+$down focus down
+    bindsym $mod+$up focus up
+    bindsym $mod+$right focus right
+    
+    # Or use $mod+[up|down|left|right]
+    bindsym $mod+Left focus left
+    bindsym $mod+Down focus down
+    bindsym $mod+Up focus up
+    bindsym $mod+Right focus right
+
+
+    # Move the focused window with the same, but add Shift
+    bindsym $mod+Shift+$left move left
+    bindsym $mod+Shift+$down move down
+    bindsym $mod+Shift+$up move up
+    bindsym $mod+Shift+$right move right
+    
+    # Ditto, with arrow keys
+    bindsym $mod+Shift+Left move left
+    bindsym $mod+Shift+Down move down
+    bindsym $mod+Shift+Up move up
+    bindsym $mod+Shift+Right move right
+    
+
+    # Alt+Tab to open rofi window mode
+    bindsym Mod1+Tab exec rofi -mode window -show window
+
+#
+# Workspaces:
+#
+
+    # Switch to next/previous workspace
+    bindsym $mod+Mod1+$right workspace next
+    bindsym $mod+Mod1+$left workspace prev
+    
+    # Switch to workspace
+    bindsym $mod+1 workspace number 1
+    bindsym $mod+2 workspace number 2
+    bindsym $mod+3 workspace number 3
+    bindsym $mod+4 workspace number 4
+    bindsym $mod+5 workspace number 5
+    bindsym $mod+6 workspace number 6
+    bindsym $mod+7 workspace number 7
+    bindsym $mod+8 workspace number 8
+    bindsym $mod+9 workspace number 9
+    bindsym $mod+0 workspace number 10
+
+    # Move focused container to workspace
+    bindsym $mod+Shift+1 move container to workspace number 1
+    bindsym $mod+Shift+2 move container to workspace number 2
+    bindsym $mod+Shift+3 move container to workspace number 3
+    bindsym $mod+Shift+4 move container to workspace number 4
+    bindsym $mod+Shift+5 move container to workspace number 5
+    bindsym $mod+Shift+6 move container to workspace number 6
+    bindsym $mod+Shift+7 move container to workspace number 7
+    bindsym $mod+Shift+8 move container to workspace number 8
+    bindsym $mod+Shift+9 move container to workspace number 9
+    bindsym $mod+Shift+0 move container to workspace number 10
+    # We just use 1-10 as the default.
+
+#
+# Layout stuff:
+#
+
+    # configure fonts
+    font pango:LiberationMono 12
+
+    # border config
+    default_border pixel 3
+    default_floating_border pixel 3
+
+    # class                     border  backgr. text    indic.  side_brd
+    client.focused              #299f68 #299f68 #4a4a4a #42ff95 #299f68
+    client.focused_inactive     #299f68 #299f68 #4a4a4a #5e6669 #5e6669
+    client.unfocused            #1c754c #1c754c #4a4a4a #5e6669 #5e6669
+    
+    # configure gaps
+    gaps inner 6
+    gaps outer 0
+
+    # You can "split" the current object of your focus with
+    # $mod+b or $mod+v, for horizontal and vertical splits
+    # respectively.
+    bindsym $mod+b splith
+    bindsym $mod+v splitv
+
+    # Switch the current container between different layout styles
+    bindsym $mod+s layout stacking
+    bindsym $mod+w layout tabbed
+    bindsym $mod+x layout toggle split
+
+    # Make the current focus fullscreen
+    bindsym $mod+Shift+f fullscreen
+
+    # Toggle the current focus between tiling and floating mode
+    bindsym $mod+space floating toggle
+
+    # Swap focus between the tiling area and the floating area
+    bindsym $mod+Shift+space focus mode_toggle
+
+    # Move focus to the parent container
+    bindsym $mod+a focus parent
+
+#
+# Scratchpad:
+#
+
+    # i3 has a "scratchpad", which is a bag of holding for windows.
+    # You can send windows there and get them back later.
+
+    # Move the currently focused window to the scratchpad
+    bindsym $mod+Shift+minus move scratchpad
+
+    # Show the next scratchpad window or hide the focused scratchpad window.
+    # If there are multiple scratchpad windows, this command cycles through them.
+    bindsym $mod+minus scratchpad show
+
+#
+# Resizing containers:
+#
+
+mode "resize" {
+    # left will shrink the containers width
+    # right will grow the containers width
+    # up will shrink the containers height
+    # down will grow the containers height
+    bindsym $left resize shrink width 10px
+    bindsym $down resize grow height 10px
+    bindsym $up resize shrink height 10px
+    bindsym $right resize grow width 10px
+
+    # Ditto, with arrow keys
+    bindsym Left resize shrink width 10px
+    bindsym Down resize grow height 10px
+    bindsym Up resize shrink height 10px
+    bindsym Right resize grow width 10px
+
+    # Return to default mode
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+
+#
+# config for individual applications
+#
+
+for_window [title="KiCad 6.0"] floating enable
+for_window [title="VirtualBox Manager"] floating enable
+for_window [class="VirtualBox Machine" instance="VirtualBox Machine"] floating enable
+for_window [title="Signal"] floating enable
+for_window [title="Telegram"] floating enable
+for_window [title="Steam"] floating enable
+for_window [class="Steam" instance="Steam"] floating enable
+for_window [title="KeePassXC"] floating enable
+for_window [title="Minecraft Launcher"] floating enable
+for_window [title="Minecraft Launcher"] resize set 640 520
+for_window [title="Settings"] floating enable
+for_window [class="mpv" instance="gl"] floating enable
+for_window [class="Gnome-screenshot" instance="gnome-screenshot"] floating enable
+for_window [title="gnome-screenshot"] floating enable
+for_window [class="Eog" instance="eog"] floating enable
+for_window [class="CuteCom5" instance="cutecom"] floating enable
+for_window [class="Org.gnome.Nautilus" instance="org.gnome.Nautilus"] floating enable
+for_window [class="Org.gnome.Nautilus" instance="org.gnome.Nautilus"] resize set 860 520
+for_window [class="Gnome-calculator" instance="gnome-calculator"] floating enable
+for_window [class="Pavucontrol" instance="pavucontrol"] floating enable
+for_window [class="Blueman-manager" instance="blueman-manager"] floating enable
+for_window [all] title_window_icon off
+
+# vim: filetype=config

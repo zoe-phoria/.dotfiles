@@ -1,5 +1,6 @@
 <h1 align="center"> dotfiles </h1>
-<p align="center"> <img src=".config/sample.png"/> </p>
+<p align="center"> <img src=".config/sample1.png"/> </p>
+<p align="center"> <img src=".config/sample2.png"/> </p>
 
 ## Setup
 

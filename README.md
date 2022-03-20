@@ -1,4 +1,4 @@
-### dotfiles by zoe
+## dotfiles
 
 - OS : [Arch Linux](https://archlinux.org/)
 - WM : [i3-gaps](https://github.com/Airblader/i3/)
@@ -12,4 +12,4 @@
 
 ### Credits
 
-Cursor - https://github.com/ful1e5/apple_cursor
+- Cursor : [Apple Cursor](https://github.com/ful1e5/apple_cursor)

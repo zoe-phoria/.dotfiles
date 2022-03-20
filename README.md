@@ -1,4 +1,6 @@
-## dotfiles
+# dotfiles
+
+## Setup
 
 - OS : [Arch Linux](https://archlinux.org/)
 - WM : [i3-gaps](https://github.com/Airblader/i3/)

@@ -36,7 +36,7 @@ set $file-manager nautilus -w
 set $browser firefox
 
 # Your preferred application launcher
-set $menu rofi -modi drun -show drun
+set $menu rofi -modi drun -show drun -i
 
 # start autostart stuff
 exec --no-startup-id dex --autostart --environment i3

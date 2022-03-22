@@ -272,6 +272,8 @@ for_window [class="Org.gnome.Nautilus" instance="org.gnome.Nautilus"] resize set
 for_window [class="Gnome-calculator" instance="gnome-calculator"] floating enable
 for_window [class="Pavucontrol" instance="pavucontrol"] floating enable
 for_window [class="Blueman-manager" instance="blueman-manager"] floating enable
+for_window [class="Gnome-calendar" instance="gnome-calendar"] floating enable
+for_window [title="fclip"] floating enable
 for_window [all] title_window_icon off
 
 # vim: filetype=config

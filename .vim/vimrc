@@ -107,14 +107,14 @@ set smarttab
 set autoindent
 
 " syntastic settings
-" set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
-" set statusline+=%*
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
 
-" let g:syntastic_always_populate_loc_list = 1
-" let g:syntastic_auto_loc_list = 1
-" let g:syntastic_check_on_open = 1
-" let g:syntastic_check_on_wq = 0
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
 
 " NERDcommenter
 filetype plugin on
@@ -181,8 +181,9 @@ Plug 'itchyny/lightline.vim'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-surround'
 Plug 'ackyshake/VimCompletesMe'
+" Plug 'ycm-core/YouCompleteMe'
 Plug 'sheerun/vim-polyglot'
-" Plug 'vim-syntastic/syntastic'
+Plug 'vim-syntastic/syntastic'
 Plug 'preservim/nerdcommenter'
 if has('nvim') || has('patch-8.0.902')
     Plug 'mhinz/vim-signify'
@@ -193,15 +194,11 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'machakann/vim-highlightedyank'
 Plug 'stevearc/vim-arduino'
-Plug 'vimwiki/vimwiki'
 Plug 'jiangmiao/auto-pairs'
-Plug 'neoclide/coc.nvim', { 'branch' : 'release' }
 Plug 'yggdroot/indentline'
 if !(&diff)     " disable minimap in diff mode
     Plug 'wfxr/minimap.vim'
 endif
 Plug 'fladson/vim-kitty'
-Plug 'lambdalisue/vim-pager'
-" Plug 'mhinz/vim-startify'
 Plug 'luochen1990/rainbow'
 call plug#end()

@@ -1,20 +1,20 @@
 #
-#         ad8888b,                                                                 
-#        d8"   "88                                        ,dPYb,                   
-#              a88                                        IP'`Yb                   
-#   gg        ,88P                                        I8  8I   gg              
-#   ""      aad8"                                         I8  8'   ""              
-#   gg      ""Y8,         ,gggg,    ,ggggg,  ,ggg,,ggg,   I8 dP    gg     ,gggg,gg 
-#   88        `88b       dP"  "Yb  dP"  "Y8gb8' "8P" "8,  I8dP     88    dP"  "Y8I 
-#   88         "88      i8'       i8'    ,8'     8I   8I  I8P      88   i8'    ,8I 
-# _,88,_Y8,    a88     ,d8,_    _,d8,   ,d8      8I   Yb,,d8b,_  _,88,_,d8,   ,d8I 
-# 8P""Y8 "Y88888P'     P""Y8888PPP"Y8888P"       8I   `Y8PI8"88888P""Y8P"Y8888P"888
-#                                                         I8 `8,              ,d8I'
-#                                                         I8  `8,           ,dP'8I 
-#                                                         I8   8I          ,8"  8I 
-# i3 config by zoe                                        I8   8I          I8   8I 
-# Read 'man i3' for a complete reference.                 I8, ,8'          `8, ,8I 
-#                                                          "Y8P'            `Y8P"  
+#         ad8888b,                                                                
+#        d8"   "88                                        ,dPYb,                  
+#              a88                                        IP'`Yb                  
+#   gg        ,88P                                        I8  8I  gg              
+#   ""      aad8"                                         I8  8'  ""              
+#   gg      ""Y8,         ,gggg,    ,ggggg,  ,ggg,,ggg,   I8 dP   gg     ,gggg,gg 
+#   88        `88b       dP"  "Yb  dP"  "Y8gb8' "8P" "8,  I8dP    88    dP"  "Y8I 
+#   88         "88      i8'       i8'    ,8'     8I   8I  I8P     88   i8'    ,8I 
+# _,88,_Y8,    a88     ,d8,_    _,d8,   ,d8      8I   Yb,,d8b,_ _,88,_,d8,   ,d8I 
+# 8P""Y8 "Y88888P'     P""Y8888P" "Y8888P"       8I   `Y8PI8"8888P""Y8P"Y8888P"888
+#                                                         I8 `8,             ,d8I'
+#                                                         I8  `8,          ,dP'8I 
+#                                                         I8   8I         ,8"  8I 
+# i3 config by zoe                                        I8   8I         I8   8I 
+# Read 'man i3' for a complete reference.                 I8, ,8'         `8, ,8I 
+#                                                          "Y8P'           `Y8P"  
 
 #
 # Variables

@@ -55,6 +55,8 @@ exec --no-startup-id xrandr --output DP-2 --mode 2560x1440 --rate 144.00
 exec --no-startup-id xrandr --output DP-4 --mode 2560x1440 --rate 60.00 --right-of DP-2
 # set keymap
 exec --no-startup-id setxkbmap us -variant intl
+# enable touchpad tapping
+exec xinput set-prop "Microsoft Surface Type Cover Touchpad" "libinput Tapping Enabled" 1
 
 #
 # Key bindings
@@ -250,20 +252,19 @@ bindsym $mod+r mode "resize"
 # config for individual applications
 #
 
-for_window [title="KiCad 6.0"] floating enable
-for_window [title="VirtualBox Manager"] floating enable
+for_window [class="Kicad" instance="kicad" title="KiCad 6.0"] floating enable
+for_window [class="Pcb_calculator" instance="pcb_calculator"] floating enable
+for_window [class="VirtualBox Manager" instance="VirtualBox Manager"] floating enable
 for_window [class="VirtualBox Machine" instance="VirtualBox Machine"] floating enable
-for_window [title="Signal"] floating enable
-for_window [title="Telegram"] floating enable
-for_window [title="Steam"] floating enable
+for_window [class="Signal" instance="signal"] floating enable
+for_window [class="TelegramDesktop" instance="telegram-desktop"] floating enable
 for_window [class="Steam" instance="Steam"] floating enable
-for_window [title="KeePassXC"] floating enable
-for_window [title="Minecraft Launcher"] floating enable
-for_window [title="Minecraft Launcher"] resize set 640 520
-for_window [title="Settings"] floating enable
+for_window [class="Keepassxc" instance="keepassxc"] floating enable
+for_window [class="Minecraft Launcher" instance="minecraft-launcher"] floating enable
+for_window [class="Minecraft Launcher" instance="minecraft-launcher"] resize set 640 520
+for_window [class="Gnome-control-center" instance="gnome-control-center"] floating enable
 for_window [class="mpv" instance="gl"] floating enable
 for_window [class="Gnome-screenshot" instance="gnome-screenshot"] floating enable
-for_window [title="gnome-screenshot"] floating enable
 for_window [class="Eog" instance="eog"] floating enable
 for_window [class="CuteCom5" instance="cutecom"] floating enable
 for_window [class="Org.gnome.Nautilus" instance="org.gnome.Nautilus"] floating enable
@@ -272,7 +273,7 @@ for_window [class="Gnome-calculator" instance="gnome-calculator"] floating enabl
 for_window [class="Pavucontrol" instance="pavucontrol"] floating enable
 for_window [class="Blueman-manager" instance="blueman-manager"] floating enable
 for_window [class="Gnome-calendar" instance="gnome-calendar"] floating enable
-for_window [title="fclip"] floating enable
+for_window [class="kitty" instance="kitty" title="fclip"] floating enable
 for_window [all] title_window_icon off
 
 # vim: filetype=config

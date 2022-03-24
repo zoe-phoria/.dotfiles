@@ -259,7 +259,7 @@ for_window [class="VirtualBox Machine" instance="VirtualBox Machine"] floating e
 for_window [class="Signal" instance="signal"] floating enable
 for_window [class="TelegramDesktop" instance="telegram-desktop"] floating enable
 for_window [class="Steam" instance="Steam"] floating enable
-for_window [class="Keepassxc" instance="keepassxc"] floating enable
+for_window [class="KeePassXC" instance="keepassxc"] floating enable
 for_window [class="Minecraft Launcher" instance="minecraft-launcher"] floating enable
 for_window [class="Minecraft Launcher" instance="minecraft-launcher"] resize set 640 520
 for_window [class="Gnome-control-center" instance="gnome-control-center"] floating enable

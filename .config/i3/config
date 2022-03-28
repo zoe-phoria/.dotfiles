@@ -56,7 +56,7 @@ exec --no-startup-id xrandr --output DP-4 --mode 2560x1440 --rate 60.00 --right-
 # set keymap
 exec --no-startup-id setxkbmap us -variant intl
 # enable touchpad tapping
-exec xinput set-prop "Microsoft Surface Type Cover Touchpad" "libinput Tapping Enabled" 1
+# exec xinput set-prop "Microsoft Surface Type Cover Touchpad" "libinput Tapping Enabled" 1
 
 #
 # Key bindings
@@ -274,6 +274,7 @@ for_window [class="Pavucontrol" instance="pavucontrol"] floating enable
 for_window [class="Blueman-manager" instance="blueman-manager"] floating enable
 for_window [class="Gnome-calendar" instance="gnome-calendar"] floating enable
 for_window [class="kitty" instance="kitty" title="fclip"] floating enable
+for_window [class="zoom" instance="zoom"] floating enable
 for_window [all] title_window_icon off
 
 # vim: filetype=config

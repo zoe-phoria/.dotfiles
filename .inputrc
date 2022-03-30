@@ -13,6 +13,8 @@ $if mode=vi
     set keymap vi-insert
     # vi-insert mode shortcuts
     Control-l: clear-screen 
+    Control-a: end-of-line
+    Control-i: beginning-of-line
 $endif
 
 # mode indicator

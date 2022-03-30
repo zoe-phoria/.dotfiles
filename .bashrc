@@ -1,9 +1,9 @@
 #              /\       
 #    _        /  \         _              
 #   | |__    /\   \    ___| |__  _ __ ___ 
-#   | '_ \  /      \  / __| '_ \| '__/ __|
+#   | '_ \  /      \  / __| '_ \| '__/ __/
 #  _| |_) |/   ,,   \ \__ \ | | | | | (__ 
-# (_)_.__//   |  |  -\|___/_| |_|_|  \___|
+# (_)_.__//   |  |  -\\___/_| |_|_|  \___\
 #        /_-''    ''-_\
 # by zoe 
 
@@ -134,7 +134,7 @@ if [ -f ~/.bash_aliases ]; then
 fi
 
 # aliases
-alias ll='ls -alF'
+alias ll='ls -AlF'
 alias la='ls -A'
 alias l='ls -CF'
 alias update='/bin/bash /home/zoe/bin/updateall.sh'

@@ -41,6 +41,7 @@ set $menu rofi -modi drun -show drun -i
 # autostart stuff
 #
 
+# start autostart entries
 exec --no-startup-id dex --autostart --environment i3
 # start polybar
 exec --no-startup-id /bin/bash /home/zoe/.config/polybar/launch.sh
@@ -51,8 +52,8 @@ exec --no-startup-id feh --bg-fill /home/zoe/wallpaper.jpg
 # disable x screensaver
 exec --no-startup-id xset s off -dpms
 # set resolution with xrandr
-exec --no-startup-id xrandr --output DP-2 --mode 2560x1440 --rate 144.00
-exec --no-startup-id xrandr --output DP-4 --mode 2560x1440 --rate 60.00 --right-of DP-2
+exec --no-startup-id xrandr --output DP-4 --mode 2560x1440 --rate 144.00
+exec --no-startup-id xrandr --output DP-2 --mode 2560x1440 --rate 60.00 --right-of DP-2
 # set keymap
 exec --no-startup-id setxkbmap us -variant intl
 # enable touchpad tapping

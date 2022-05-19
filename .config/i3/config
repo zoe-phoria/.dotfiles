@@ -53,11 +53,15 @@ exec --no-startup-id feh --bg-fill /home/zoe/wallpaper.jpg
 exec --no-startup-id xset s off -dpms
 # set resolution with xrandr
 exec --no-startup-id xrandr --output DP-4 --mode 2560x1440 --rate 144.00
-exec --no-startup-id xrandr --output DP-2 --mode 2560x1440 --rate 60.00 --right-of DP-2
+# exec --no-startup-id xrandr --output DP-2 --mode 2560x1440 --rate 60.00 --right-of DP-2
 # set keymap
 exec --no-startup-id setxkbmap us -variant intl
 # enable touchpad tapping
 # exec xinput set-prop "Microsoft Surface Type Cover Touchpad" "libinput Tapping Enabled" 1
+# propmt wether or not to start barrier (mouse and keyboard sharing software)
+exec --no-startup-id i3-nagbar -t warning -m 'Start barrier? (only in secure networks)' -B 'Yes' 'barrier'
+# start onboard
+# exec --no-startup-id onboard
 
 #
 # Key bindings

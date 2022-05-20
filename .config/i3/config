@@ -59,7 +59,7 @@ exec --no-startup-id setxkbmap us -variant intl
 # enable touchpad tapping
 # exec xinput set-prop "Microsoft Surface Type Cover Touchpad" "libinput Tapping Enabled" 1
 # propmt wether or not to start barrier (mouse and keyboard sharing software)
-exec --no-startup-id i3-nagbar -t warning -m 'Start barrier? (only in secure networks)' -B 'Yes' 'barrier'
+exec --no-startup-id i3-nagbar -t warning -m 'Start barrier? (only in secure networks)' -B 'Yes' 'barrier & killall -q i3-nagbar'
 # start onboard
 # exec --no-startup-id onboard
 
@@ -96,9 +96,6 @@ exec --no-startup-id i3-nagbar -t warning -m 'Start barrier? (only in secure net
     # Reload the configuration file/Restart i3
     bindsym $mod+Shift+c reload
     bindsym $mod+Shift+p restart
-
-    # Exit i3 (logs you out of your X session)
-    bindsym $mod+Shift+q exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
     # take a screenshot
     bindsym Print exec "gnome-screenshot -i"

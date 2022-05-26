@@ -43,6 +43,8 @@ set $menu rofi -modi drun -show drun -i
 
 # start autostart entries
 exec --no-startup-id dex --autostart --environment i3
+# make symlinks in home xdg user dirs
+exec --no-startup-id /bin/bash /home/zoe/bin/xdg.sh
 # start polybar
 exec --no-startup-id /bin/bash /home/zoe/.config/polybar/launch.sh
 # start picom window compositor

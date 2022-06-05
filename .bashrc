@@ -165,6 +165,16 @@ rofi-launcher()
     'kitty -e bash -ic "{cmd} && read"' & disown
 }
 
+# auto startx on tty1
+if [ -z "${DISPLAY}" ] && [ "${XDG_VTNR}" -eq 1 ]; then
+  exec startx
+fi
+
+# autostart GNOME keyring with xinit
+if [ -n "$DESKTOP_SESSION" ];then
+    eval $(gnome-keyring-daemon --start)
+    export SSH_AUTH_SOCK
+fi
 
 # BEGIN_KITTY_SHELL_INTEGRATION
 if test -n "$KITTY_INSTALLATION_DIR" -a -e "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; then source "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; fi

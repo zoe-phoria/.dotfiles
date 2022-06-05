@@ -174,16 +174,16 @@ exec --no-startup-id setxkbmap us -variant intl
 #
 
     # configure fonts
-    font pango:LiberationMono 12
+    font pango:LiberationMono 13
 
     # border config
     default_border pixel 3
     default_floating_border pixel 3
 
     # class                     border  backgr. text    indic.  side_brd
-    client.focused              #299f68 #299f68 #4a4a4a #42ff95 #299f68
-    client.focused_inactive     #299f68 #299f68 #4a4a4a #5e6669 #5e6669
-    client.unfocused            #1c754c #1c754c #4a4a4a #5e6669 #5e6669
+    client.focused              #fafafa #fafafa #4a4a4a #42ff95 #299f68
+    client.focused_inactive     #fafafa #fafafa #4a4a4a #5e6669 #5e6669
+    client.unfocused            #b8b8b8 #b8b8b8 #4a4a4a #5e6669 #5e6669
     
     # configure gaps
     gaps inner 6

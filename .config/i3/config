@@ -253,7 +253,7 @@ mode "resize" {
 bindsym $mod+r mode "resize"
 
 #
-# config for individual applications
+# size and layer config for individual applications
 #
 
 for_window [class="Kicad" instance="kicad" title="KiCad 6.0"] floating enable
@@ -261,8 +261,10 @@ for_window [class="Pcb_calculator" instance="pcb_calculator"] floating enable
 for_window [class="VirtualBox Manager" instance="VirtualBox Manager"] floating enable
 for_window [class="VirtualBox Machine" instance="VirtualBox Machine"] floating enable
 for_window [class="Signal" instance="signal"] floating enable
+for_window [class="Signal" instance="signal"] resize set 712 550
 for_window [class="TelegramDesktop" instance="telegram-desktop"] floating enable
 for_window [class="Steam" instance="Steam"] floating enable
+for_window [class="Steam" instance="Steam"] resize set 1010 600
 for_window [class="KeePassXC" instance="keepassxc"] floating enable
 for_window [class="Minecraft Launcher" instance="minecraft-launcher"] floating enable
 for_window [class="Minecraft Launcher" instance="minecraft-launcher"] resize set 640 520
@@ -277,6 +279,7 @@ for_window [class="gnome-calculator" instance="gnome-calculator"] floating enabl
 for_window [class="Pavucontrol" instance="pavucontrol"] floating enable
 for_window [class="Blueman-manager" instance="blueman-manager"] floating enable
 for_window [class="gnome-calendar" instance="gnome-calendar"] floating enable
+for_window [class="gnome-calendar" instance="gnome-calendar"] resize set 1100 900
 for_window [class="kitty" instance="kitty" title="fclip"] floating enable
 for_window [class="zoom" instance="zoom"] floating enable
 for_window [class="firefox" instance="Places"] floating enable

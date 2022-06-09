@@ -14,6 +14,7 @@ $if mode=vi
     # vi-insert mode shortcuts
     Control-l: clear-screen 
     Control-a: end-of-line
+    Control-k: kill-line
 $endif
 
 # mode indicator

@@ -39,6 +39,7 @@ set $browser firefox
 
 # Your preferred application launcher
 set $menu rofi -modi drun -show drun -i
+set $menu_path rofi -show run
 
 #
 # autostart stuff
@@ -84,6 +85,9 @@ exec --no-startup-id setxkbmap us -variant intl
 
     # Start your launcher
     bindsym $mod+d exec $menu
+
+    #Start launcher with $PATH
+    bindsym $mod+shift+d exec $menu_path
 
     # Start preferred web browser
     bindsym $mod+f exec $browser

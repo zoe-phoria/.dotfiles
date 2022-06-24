@@ -97,7 +97,7 @@ set undofile
 set undolevels=1000 "maximum number of changes that can be undone
 set undoreload=10000 "maximum number lines to save for undo on a buffer reload
 
-" colorscheme
+" colorscheme evening
 " none/default i guess?
 
 " seperator style
@@ -146,7 +146,7 @@ set laststatus=2
 " disable native status bar in favor of lightline
 set noshowmode
 " lightline color scheme
-let g:lightline = {'colorscheme': 'default', }
+let g:lightline = {'colorscheme': 'wombat',}
 
 " minimap.vim config
 let g:minimap_width=15

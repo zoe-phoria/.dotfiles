@@ -67,7 +67,7 @@ fi
 
 # custom bash prompt
 if [ "$color_prompt" = yes ]; then
-    PS1='\[\e[48;5;236m\] ${arch_chroot:+($arch_chroot) }\[\033[01;32m\]\u@\h\[\033[00m\]\[\e[48;5;236m\] \[\e[0m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+    PS1='\[\e[48;5;236m\] ${arch_chroot:+($arch_chroot) }\[\033[01;32m\]\u@\h\[\033[00m\]\[\e[48;5;236m\] \[\e[0m\]:\[\033[01;36m\]\w\[\033[00m\]\$ '
 else
     PS1=' ${arch_chroot:+($arch_chroot)}\u@\h:\w\$ '
 fi
@@ -154,7 +154,7 @@ alias ccd='cd $(find -type d,l | fzf -i)'
 alias youtube='ytfzf'
 alias yt='ytfzf'
 alias y='ytfzf'
-alias tty-clock='tty-clock -cB'
+alias tty-clock='tty-clock -cBC 6'
 alias doccat='odt2txt'
 alias hst="history | fzf --tac | cut -c 8- | sed -Ez '$ s/\n+$//' | tr -d '\n' | xclip -sel c"
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"' # add && alert to long commands

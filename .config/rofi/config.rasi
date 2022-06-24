@@ -1,11 +1,12 @@
 /*******************************************************************************
  * ROFI Color theme
  * User: Sergio Morales
+ * Modified: Zoé Luisa Müller
  * Copyright: Sergio Morales
  *******************************************************************************/
 
 * {
-    selected-normal-foreground:  rgba ( 255, 255, 255, 100 % );
+    selected-normal-foreground:  rgba ( 33, 26, 25, 100 % );
     foreground:                  rgba ( 82, 93, 118, 100 % );
     normal-foreground:           @foreground;
     alternate-normal-background: rgba ( 245, 245, 245, 100 % );
@@ -23,7 +24,7 @@
     alternate-normal-foreground: @foreground;
     normal-background:           rgba ( 255, 255, 255, 100 % );
     lightfg:                     rgba ( 88, 104, 117, 100 % );
-    selected-normal-background:  rgba ( 38, 162, 105, 100 % );
+    selected-normal-background:  rgba ( 255, 200, 190, 100 % );
     border-color:                @foreground;
     spacing:                     2;
     separatorcolor:              @foreground;

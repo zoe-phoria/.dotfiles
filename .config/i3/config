@@ -54,7 +54,7 @@ exec --no-startup-id /bin/bash /home/zoe/.config/polybar/launch.sh
 # start picom window compositor
 exec --no-startup-id picom
 # start feh background
-exec --no-startup-id feh --bg-fill /home/zoe/wallpaper.jpg
+exec --no-startup-id feh --bg-fill /home/zoe/qtrain.jpg
 # disable x screensaver
 exec --no-startup-id xset s off -dpms
 # set resolution with xrandr
@@ -105,6 +105,9 @@ exec --no-startup-id setxkbmap us -variant intl
     # Reload the configuration file/Restart i3
     bindsym $mod+Shift+c reload
     bindsym $mod+Shift+p restart
+
+    # prompt for shutdown
+    bindsym $mod+Shift+q exec kitty /home/zoe/bin/shutdown-prompt.sh
 
     # take a screenshot
     bindsym Print exec "gnome-screenshot -i"
@@ -188,9 +191,9 @@ exec --no-startup-id setxkbmap us -variant intl
     default_floating_border pixel 3
 
     # class                     border  backgr. text    indic.  side_brd
-    client.focused              #fafafa #fafafa #4a4a4a #42ff95 #299f68
-    client.focused_inactive     #fafafa #fafafa #4a4a4a #5e6669 #5e6669
-    client.unfocused            #b8b8b8 #b8b8b8 #4a4a4a #5e6669 #5e6669
+    client.focused              #fff8f7 #fff8f7 #211a19 #fff8f7 #ffc8be
+    client.focused_inactive     #fff8f7 #fff8f7 #211a19 #5e6669 #5e6669
+    client.unfocused            #b8b8b8 #b8b8b8 #615a59 #5e6669 #5e6669
     
     # configure gaps
     gaps inner 6
@@ -288,6 +291,8 @@ for_window [class="Blueman-manager" instance="blueman-manager"] floating enable
 for_window [class="gnome-calendar" instance="gnome-calendar"] floating enable
 for_window [class="gnome-calendar" instance="gnome-calendar"] resize set 1100 900
 for_window [class="kitty" instance="kitty" title="fclip"] floating enable
+for_window [class="kitty" instance="kitty" title="shutdown-prompt.sh"] floating enable
+for_window [class="kitty" instance="kitty" title="shutdown-prompt.sh"] resize set 230 80
 for_window [class="zoom" instance="zoom"] floating enable
 for_window [class="firefox" instance="Places"] floating enable
 for_window [class="Proton Mail Bridge" instance="protonmail-bridge"] floating enable

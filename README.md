@@ -17,3 +17,4 @@
 ## Credits
 
 - Cursor : [Apple Cursor](https://github.com/ful1e5/apple_cursor)
+- Background : [Q train by Nigel Van Wieck](https://www.nigelvanwieck.net/work/q-train/)

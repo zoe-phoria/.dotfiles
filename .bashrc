@@ -137,7 +137,7 @@ fi
 alias ll='ls -AlF'
 alias la='ls -A'
 alias l='ls -CF'
-alias update='/bin/bash /home/zoe/bin/updateall.sh'
+alias yoink='/bin/bash /home/zoe/bin/updateall.sh'
 alias orp='pacman -Qtdq'
 alias mnt='sudo mount -a'
 alias utopia='ssh ubuntu@192.168.0.2 -p 5022'

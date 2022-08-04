@@ -184,11 +184,11 @@ exec --no-startup-id setxkbmap us -variant intl
 #
 
     # configure fonts
-    font pango:LiberationMono 13
+    font pango:LiberationMono 14
 
     # border config
-    default_border pixel 4
-    default_floating_border pixel 4
+    default_border pixel 5
+    default_floating_border pixel 5
 
     # class                     border  backgr. text    indic.  side_brd
     client.focused              #fff8f7 #fff8f7 #211a19 #fff8f7 #ffc8be

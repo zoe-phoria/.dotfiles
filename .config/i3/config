@@ -262,40 +262,7 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-#
-# size and layer config for individual applications
-#
-
-for_window [class="Kicad" instance="kicad" title="KiCad 6.0"] floating enable
-for_window [class="Pcb_calculator" instance="pcb_calculator"] floating enable
-for_window [class="VirtualBox Manager" instance="VirtualBox Manager"] floating enable
-for_window [class="VirtualBox Machine" instance="VirtualBox Machine"] floating enable
-for_window [class="Signal" instance="signal"] floating enable
-for_window [class="Signal" instance="signal"] resize set 712 550
-for_window [class="TelegramDesktop" instance="telegram-desktop"] floating enable
-for_window [class="Steam" instance="Steam"] floating enable
-for_window [class="Steam" instance="Steam"] resize set 1010 600
-for_window [class="KeePassXC" instance="keepassxc"] floating enable
-for_window [class="Minecraft Launcher" instance="minecraft-launcher"] floating enable
-for_window [class="Minecraft Launcher" instance="minecraft-launcher"] resize set 640 520
-for_window [class="gnome-control-center" instance="gnome-control-center"] floating enable
-for_window [class="mpv" instance="gl"] floating enable
-for_window [class="Gnome-screenshot" instance="gnome-screenshot"] floating enable
-for_window [class="Eog" instance="eog"] floating enable
-for_window [class="CuteCom5" instance="cutecom"] floating enable
-for_window [class="Org.gnome.Nautilus" instance="org.gnome.Nautilus"] floating enable
-for_window [class="Org.gnome.Nautilus" instance="org.gnome.Nautilus"] resize set 860 520
-for_window [class="gnome-calculator" instance="gnome-calculator"] floating enable
-for_window [class="Pavucontrol" instance="pavucontrol"] floating enable
-for_window [class="Blueman-manager" instance="blueman-manager"] floating enable
-for_window [class="gnome-calendar" instance="gnome-calendar"] floating enable
-for_window [class="gnome-calendar" instance="gnome-calendar"] resize set 1100 900
-for_window [class="kitty" instance="kitty" title="fclip"] floating enable
-for_window [class="kitty" instance="kitty" title="shutdown-prompt.sh"] floating enable
-for_window [class="kitty" instance="kitty" title="shutdown-prompt.sh"] resize set 230 80
-for_window [class="zoom" instance="zoom"] floating enable
-for_window [class="firefox" instance="Places"] floating enable
-for_window [class="Proton Mail Bridge" instance="protonmail-bridge"] floating enable
-for_window [all] title_window_icon off
+# include files
+include ~/.config/i3/window_properties
 
 # vim: filetype=config

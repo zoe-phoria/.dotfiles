@@ -31,6 +31,7 @@ for_window [class="kitty" instance="kitty" title="shutdown-prompt.sh"] resize se
 for_window [class="zoom" instance="zoom"] floating enable
 for_window [class="firefox" instance="Places"] floating enable
 for_window [class="Proton Mail Bridge" instance="protonmail-bridge"] floating enable
+for_window [class="Whatsapp-for-linux" instance="whatsapp-for-linux"] floating enable
 for_window [all] title_window_icon off
 # workaround for issue 5149 
 for_window [all] border pixel

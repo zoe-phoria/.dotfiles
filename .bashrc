@@ -103,12 +103,9 @@ export EDITOR=$VISUAL
 export PATH=$PATH:$HOME/bin
 
 # some shortcuts for ip adresses
-export athena=192.168.0.3
-export nas=$athena
-export utopia=192.168.0.2
-export pi=$utopia
-export athanasia=192.168.0.1
-export router=$athanasia
+export nas=192.168.0.3
+export pi=192.168.0.2
+export router=192.168.0.1
 
 # include ~/.bash_aliases
 if [ -f ~/.bash_aliases ]; then
@@ -122,8 +119,8 @@ alias yoink='/bin/bash /home/zoe/bin/updateall.sh'
 alias orp='pacman -Qtdq'
 alias mnt='sudo mount -a'
 alias shdn='killall -q keepassxc & sudo umount /mnt/files && sudo umount /mnt/music && shutdown 0'
-alias utopia='ssh ubuntu@192.168.0.2 -p 5022'
-alias athena='ssh athena@192.168.0.3 -p 5022'
+alias pi='ssh ubuntu@192.168.0.2 -p 5022'
+alias nas='ssh athena@192.168.0.3 -p 5022'
 alias :q='exit'
 alias :qa='exit'
 alias glogout='gnome-session-quit'

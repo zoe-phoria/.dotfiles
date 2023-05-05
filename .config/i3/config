@@ -38,8 +38,10 @@ set $file-manager nautilus -w
 set $browser firefox
 
 # Your preferred application launcher
-set $menu rofi -normal-window -modi drun -show drun -i
-set $menu_path rofi -normal-window -show run
+# set $menu rofi -normal-window -modi drun -show drun -i
+set $menu rofi -modi drun -show drun -i
+# set $menu_path rofi -normal-window -show run
+set $menu_path rofi -show run
 
 #
 # autostart stuff

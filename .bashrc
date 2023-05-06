@@ -17,7 +17,6 @@ case $- in
 esac
 
 # don't put duplicate lines or lines starting with space in the history.
-# See bash(1) for more options
 HISTFILE=/home/zoe/.bash_history
 HISTCONTROL=ignorespace:ignoredups:erasedups
 
@@ -32,8 +31,7 @@ HISTFILESIZE=2000
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
-# If set, the pattern "**" used in a pathname expansion context will
-# match all files and zero or more directories and subdirectories.
+# use "**" as wildcard for paths
 shopt -s globstar
 
 # make less more friendly for non-text input files, see lesspipe(1)
@@ -51,9 +49,7 @@ esac
 
 # test for color support
 if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-    # We have color support; assume it's compliant with Ecma-48
-    # (ISO/IEC-6429). (Lack of such support is extremely rare, and such
-    # a case would tend to support setf rather than setaf.)
+    # if tput setaf works it can probably do color
     color_prompt=yes
 else
     color_prompt=no
@@ -79,18 +75,7 @@ fi
 # colored GCC warnings and errors
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
-# enable programmable completion features (you don't need to enable
-# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
-# sources /etc/bash.bashrc).
-#   if ! shopt -oq posix; then
-#       if [ -f /usr/share/bash-completion/bash_completion ]; then
-#           . /usr/share/bash-completion/bash_completion
-#       elif [ -f /etc/bash_completion ]; then
-#           . /etc/bash_completion
-#       fi
-#   fi
-
-# autocomplete pacman querys
+# autocomplete
 if [[ -f /etc/bash_completion ]]; then
     /etc/bash_completion
 fi
@@ -118,12 +103,10 @@ alias l='ls -CF'
 alias yoink='/bin/bash /home/zoe/bin/updateall.sh'
 alias orp='pacman -Qtdq'
 alias mnt='sudo mount -a'
-alias shdn='killall -q keepassxc & sudo umount /mnt/files && sudo umount /mnt/music && shutdown 0'
 alias pi='ssh ubuntu@192.168.0.2 -p 5022'
 alias nas='ssh athena@192.168.0.3 -p 5022'
 alias :q='exit'
 alias :qa='exit'
-alias glogout='gnome-session-quit'
 alias unouploadasp='arduino-cli compile -v -b arduino:avr:uno -u -P usbasp '
 alias nanouploadasp='arduino-cli compile -v -b arduino:avr:nano -u -P usbasp '
 alias unoupload='arduino-cli compile -v -b arduino:avr:uno -u'
@@ -131,10 +114,6 @@ alias nanoupload='arduino-cli compile -v -b arduino:avr:nano -u'
 alias pip='python -m pip'
 alias icat='kitty +kitten icat'
 alias ccd='cd $(find -type d,l | fzf -i)'
-alias youtube='ytfzf'
-alias yt='ytfzf'
-alias y='ytfzf'
-alias tty-clock='tty-clock -cBC 6'
 alias doccat='odt2txt'
 alias hst="history | fzf --tac | cut -c 8- | sed -Ez '$ s/\n+$//' | tr -d '\n' | xclip -sel c"
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"' # add && alert to long commands

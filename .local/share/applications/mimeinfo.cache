@@ -1,3 +1,26 @@
 [MIME Cache]
 image/svg+xml=Write.desktop;
 inode/directory=org.gnome.Nautilus.desktop;ranger.desktop;
+application/pdf=org.gnome.Evince.desktop;firefox.desktop;libreoffice-draw.desktop;chromium.dekstop
+image/bmp=org.gnome.eog.desktop;feh.desktop
+image/gif=org.gnome.eog.desktop;feh.desktop;chromium.desktop;
+image/heic=feh.desktop;
+image/jpeg=org.gnome.eog.desktop;feh.desktop;chromium.desktop;
+image/jpg=org.gnome.eog.desktop;feh.desktop;
+image/pjpeg=org.gnome.eog.desktop;feh.desktop;
+image/png=org.gnome.eog.desktop;feh.desktop;chromium.desktop;
+image/svg+xml=org.gnome.eog.desktop;
+image/svg+xml-compressed=org.gnome.eog.desktop;
+image/tiff=org.gnome.eog.desktop;feh.desktop;org.gnome.Evince.desktop;
+image/vnd.djvu=org.gnome.Evince.desktop;
+image/vnd.wap.wbmp=org.gnome.eog.desktop;
+image/webp=org.gnome.eog.desktop;feh.desktop;chromium.desktop;
+image/x-bmp=org.gnome.eog.desktop;feh.desktop;
+image/x-pcx=org.gnome.eog.desktop;feh.desktop;
+image/x-png=org.gnome.eog.desktop;feh.desktop;
+image/x-portable-anymap=org.gnome.eog.desktop;feh.desktop;
+image/x-portable-bitmap=org.gnome.eog.desktop;feh.desktop;
+image/x-portable-graymap=org.gnome.eog.desktop;feh.desktop;
+image/x-portable-pixmap=org.gnome.eog.desktop;feh.desktop;
+image/x-xbitmap=org.gnome.eog.desktop;feh.desktop;
+text/plain=vim.desktop

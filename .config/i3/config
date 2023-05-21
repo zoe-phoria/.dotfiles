@@ -148,6 +148,9 @@ exec --no-startup-id setxkbmap us -variant intl
     bindsym Mod1+Tab exec rofi -mode window -show window
     bindsym $mod+Tab exec rofi -mode window -show window
 
+    # click of hover to focus window
+    focus_follows_mouse no
+
 #
 # Workspaces:
 #

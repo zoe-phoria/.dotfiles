@@ -7,9 +7,8 @@ for_window [class="VirtualBox Machine" instance="VirtualBox Machine"] floating e
 for_window [class="Signal" instance="signal"] floating enable
 for_window [class="Signal" instance="signal"] resize set 712 550
 for_window [class="TelegramDesktop" instance="telegram-desktop"] floating enable
-for_window [class="Steam" instance="Steam"] floating enable
-for_window [class="Steam" instance="Steam"] resize set 1010 600
-for_window [title="Steam"] floating disable
+# always move steam to workspace 10 
+assign [class="steam"] 10
 for_window [class="KeePassXC" instance="keepassxc"] floating enable
 for_window [class="Minecraft Launcher" instance="minecraft-launcher"] floating enable
 for_window [class="Minecraft Launcher" instance="minecraft-launcher"] resize set 640 520

@@ -16,7 +16,7 @@ for_window [class="Gnome-screenshot" instance="gnome-screenshot"] floating enabl
 for_window [class="Eog" instance="eog"] floating enable
 for_window [class="CuteCom5" instance="cutecom"] floating enable
 for_window [class="org.gnome.Nautilus" instance="org.gnome.Nautilus"] floating enable
-for_window [class="org.gnome.Nautilus" instance="org.gnome.Nautilus"] resize set 860 520
+for_window [class="org.gnome.Nautilus" instance="org.gnome.Nautilus" title="Home"] resize set 860 520
 for_window [class="gnome-calculator" instance="gnome-calculator"] floating enable
 for_window [class="Pavucontrol" instance="pavucontrol"] floating enable
 for_window [class="Blueman-manager" instance="blueman-manager"] floating enable

@@ -77,6 +77,7 @@ map \ :nohlsearch<CR>:call minimap#vim#ClearColorSearch()<CR>
 " folding
 command Fold setlocal foldmethod=syntax
 command Foldoff setlocal foldmethod=marker
+command Fc foldclose
 
 " fzf on current buffer
 command! -nargs=* F call fzf#vim#lines(<q-args>)

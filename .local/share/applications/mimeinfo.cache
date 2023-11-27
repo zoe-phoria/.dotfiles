@@ -24,3 +24,4 @@ image/x-portable-graymap=org.gnome.eog.desktop;feh.desktop;
 image/x-portable-pixmap=org.gnome.eog.desktop;feh.desktop;
 image/x-xbitmap=org.gnome.eog.desktop;feh.desktop;
 text/plain=vim.desktop
+text/xml=vim.desktop

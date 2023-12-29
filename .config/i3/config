@@ -66,10 +66,6 @@ exec --no-startup-id xrandr --output DisplayPort-0 --mode 2560x1440 --rate 144.0
 exec --no-startup-id setxkbmap us -variant intl
 # enable touchpad tapping
 # exec xinput set-prop "Microsoft Surface Type Cover Touchpad" "libinput Tapping Enabled" 1
-# propmt wether or not to start barrier (mouse and keyboard sharing software)
-# exec --no-startup-id i3-nagbar -t warning -m 'Start barrier? (only in secure networks)' -B 'Yes' 'barrier & killall -q i3-nagbar'
-# start onboard
-# exec --no-startup-id onboard
 
 #
 # Key bindings

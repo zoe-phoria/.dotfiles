@@ -77,9 +77,9 @@ map \ :nohlsearch<CR>:call minimap#vim#ClearColorSearch()<CR>
 " clipboard handling
 " copy visual selction to clipboard (unix only speculative bc can't test)
 if has('macunix')
-    vmap <leader>Y :w !pbcopy<CR><CR>
+    vmap <leader>y :w !pbcopy<CR><CR>
 elseif has('unix') && !empty(glob('/usr/bin/xclip'))
-    vmap <leader>Y :w !xclip -selection c<CR><CR>
+    vmap <leader>y :w !xclip -selection c<CR><CR>
 endif
 
 " folding

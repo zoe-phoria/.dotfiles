@@ -74,6 +74,10 @@ set smartcase
 " remove search highlighting
 map \ :nohlsearch<CR>:call minimap#vim#ClearColorSearch()<CR>
 
+" macos clipboard handling
+" copy visual selction to clipboard
+vmap <leader>Y :w !pbcopy<CR><CR>
+
 " folding
 command Fold setlocal foldmethod=syntax
 command Foldoff setlocal foldmethod=marker

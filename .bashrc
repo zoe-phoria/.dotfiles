@@ -180,14 +180,14 @@ case $OSTYPE in
     "linux-gnu")
         # linux paths
         if [[ -f /home/zoe/.sync.err ]]; then
-            printf "last sync unsuccessful (see /home/zoe/.sync.err\n)"
+            printf "last sync unsuccessful (see /home/zoe/.sync.err)\n"
         fi
     ;;
 
     "darwin"*)
         # macos paths
         if [[ -f /Users/zoe/.sync.err ]]; then
-            printf "last sync unsuccessful (see /Users/zoe/.sync.err\n)"
+            printf "last sync unsuccessful (see /Users/zoe/.sync.err)\n"
         fi
     ;;
 

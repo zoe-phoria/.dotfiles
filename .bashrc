@@ -32,7 +32,9 @@ HISTFILESIZE=2000
 shopt -s checkwinsize
 
 # use "**" as wildcard for paths
-shopt -s globstar
+if [[ $OSTYPE == linux-gnu ]]; then
+    shopt -s globstar
+fi
 
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
@@ -80,6 +82,21 @@ if [[ -f /etc/bash_completion ]]; then
     /etc/bash_completion
 fi
 
+# homebrew autocomplete (only on macos)
+if [[ $OSTYPE == "darwin"* ]]; then
+    if type brew &>/dev/null; then
+        HOMEBREW_PREFIX="$(brew --prefix)"
+        if [[ -r "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh" ]]; then
+            source "${HOMEBREW_PREFIX}/etc/profile.d/bash_completion.sh"
+        else
+            for COMPLETION in "${HOMEBREW_PREFIX}/etc/bash_completion.d/"*
+            do
+            [[ -r "${COMPLETION}" ]] && source "${COMPLETION}"
+            done
+        fi
+    fi
+fi
+
 # set default editor
 export VISUAL=vim
 export EDITOR=$VISUAL
@@ -100,7 +117,11 @@ fi
 # aliases
 alias ll='ls -AlF'
 alias l='ls -CF'
-alias yoink='/bin/bash /home/zoe/bin/updateall.sh'
+if [[ $OSTYPE == "linux-gnu" ]]; then
+    alias yoink='/bin/bash /home/zoe/bin/updateall.sh'
+elif [[ $OSTYPE == "darwin"* ]]; then
+    alias yoink='brew update & brew upgrade'
+fi
 alias orp='pacman -Qtdq'
 alias mnt='sudo mount -a'
 alias pi='ssh ubuntu@192.168.0.2 -p 5022'
@@ -127,11 +148,13 @@ ranger-cd()
     rm $HOME/.rangerdir
 }
 alias ranger='ranger-cd'
-rofi-launcher()
-{
-    rofi -modi drun -show drun -run-shell-command \
-    'kitty -e bash -ic "{cmd} && read"' & disown
-}
+
+if [[ -f /usr/bin/rofi ]]; then
+    rofi-launcher()
+    {
+        rofi -modi drun -show drun -run-shell-command 'kitty -e bash -ic "{cmd} && read"' & disown
+    }
+fi
 
 # include additional config files
 if [ -f /home/zoe/.config/wifi-aliases ]; then
@@ -144,10 +167,35 @@ if [[ -z "${DISPLAY}" && "${XDG_VTNR}" -eq 1 ]]; then
 fi
 
 # auto start GNOME keyring with xinit
-if [ -n "$DESKTOP_SESSION" ];then
-    eval $(gnome-keyring-daemon --start)
-    export SSH_AUTH_SOCK
+if [[ -f /usr/bin/xinit ]]; then
+    if [ -n "$DESKTOP_SESSION" ];then
+        eval $(gnome-keyring-daemon --start)
+        export SSH_AUTH_SOCK
+    fi
 fi
+
+# print welcome message when last sync was unsuccessful
+case $OSTYPE in
+
+    "linux-gnu")
+        # linux paths
+        if [[ -f /home/zoe/.sync.err ]]; then
+            printf "last sync unsuccessful (see /home/zoe/.sync.err\n)"
+        fi
+    ;;
+
+    "darwin"*)
+        # macos paths
+        if [[ -f /Users/zoe/.sync.err ]]; then
+            printf "last sync unsuccessful (see /Users/zoe/.sync.err\n)"
+        fi
+    ;;
+
+    *)
+        # unsupported os, do nothing
+    ;;
+
+esac
 
 # BEGIN_KITTY_SHELL_INTEGRATION
 if test -n "$KITTY_INSTALLATION_DIR" -a -e "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; then source "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; fi

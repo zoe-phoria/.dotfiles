@@ -167,7 +167,7 @@ if [[ -z "${DISPLAY}" && "${XDG_VTNR}" -eq 1 ]]; then
 fi
 
 # auto start GNOME keyring with xinit
-if [[ -f /usr/bin/xinit ]]; then
+if [[ -n $(pgrep xinit) ]]; then
     if [ -n "$DESKTOP_SESSION" ];then
         eval $(gnome-keyring-daemon --start)
         export SSH_AUTH_SOCK

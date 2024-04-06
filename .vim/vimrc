@@ -75,7 +75,7 @@ set smartcase
 map \ :nohlsearch<CR>:call minimap#vim#ClearColorSearch()<CR>
 
 " clipboard handling
-" copy visual selction to clipboard (unix only speculative bc can't test)
+" copy visual selction to clipboard
 if has('macunix')
     vmap <leader>Y :w !pbcopy<CR><CR>
 elseif has('unix') && !empty(glob('/usr/bin/xclip'))

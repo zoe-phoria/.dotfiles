@@ -162,7 +162,7 @@ if [ -f /home/zoe/.config/wifi-aliases ]; then
 fi
 
 # auto startx on tty1
-if [[ -z "${DISPLAY}" && "${XDG_VTNR}" -eq 1 ]]; then
+if [[ -z $(pgrep gdm) && -z "${DISPLAY}" && "${XDG_VTNR}" -eq 1 ]]; then
   exec startx
 fi
 

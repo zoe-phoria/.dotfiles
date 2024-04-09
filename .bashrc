@@ -120,7 +120,7 @@ alias l='ls -CF'
 if [[ $OSTYPE == "linux-gnu" ]]; then
     alias yoink='/bin/bash /home/zoe/bin/updateall.sh'
 elif [[ $OSTYPE == "darwin"* ]]; then
-    alias yoink='brew update & brew upgrade'
+    alias yoink='brew update && brew upgrade'
 fi
 alias orp='pacman -Qtdq'
 alias mnt='sudo mount -a'

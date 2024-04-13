@@ -175,27 +175,9 @@ if [[ -n $(pgrep xinit) ]]; then
 fi
 
 # print welcome message when last sync was unsuccessful
-case $OSTYPE in
-
-    "linux-gnu")
-        # linux paths
-        if [[ -f /home/zoe/.sync.err ]]; then
-            printf "last sync unsuccessful (see /home/zoe/.sync.err)\n"
-        fi
-    ;;
-
-    "darwin"*)
-        # macos paths
-        if [[ -f /Users/zoe/.sync.err ]]; then
-            printf "last sync unsuccessful (see /Users/zoe/.sync.err)\n"
-        fi
-    ;;
-
-    *)
-        # unsupported os, do nothing
-    ;;
-
-esac
+if [[ -f $HOME/.sync.err ]]; then
+    printf "last sync unsuccessful (see /home/zoe/.sync.err)\n"
+fi
 
 # BEGIN_KITTY_SHELL_INTEGRATION
 if test -n "$KITTY_INSTALLATION_DIR" -a -e "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; then source "$KITTY_INSTALLATION_DIR/shell-integration/bash/kitty.bash"; fi

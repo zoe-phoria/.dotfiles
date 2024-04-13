@@ -17,7 +17,7 @@ case $- in
 esac
 
 # don't put duplicate lines or lines starting with space in the history.
-HISTFILE=/home/zoe/.bash_history
+HISTFILE=$HOME/.bash_history
 HISTCONTROL=ignorespace:ignoredups:erasedups
 
 # append to the history file, don't overwrite it
@@ -118,7 +118,7 @@ fi
 alias ll='ls -AlF'
 alias l='ls -CF'
 if [[ $OSTYPE == "linux-gnu" && -n $(cat /etc/os-release | grep "Arch Linux") ]]; then
-    alias yoink='/bin/bash /home/zoe/bin/updateall.sh'
+    alias yoink='/bin/bash $HOME/bin/updateall.sh'
 elif [[ $OSTYPE == "linux-gnu" && -n $(cat /etc/os-release | grep "ubuntu") ]]; then
     alias yoink == "sudo apt update && sudo apt upgrade && sudo apt autoremove"
 elif [[ $OSTYPE == "darwin"* ]]; then
@@ -159,8 +159,8 @@ if [[ -f /usr/bin/rofi ]]; then
 fi
 
 # include additional config files
-if [ -f /home/zoe/.config/wifi-aliases ]; then
-    . /home/zoe/.config/wifi-aliases
+if [ -f $HOME/.config/wifi-aliases ]; then
+    . $HOME/.config/wifi-aliases
 fi
 
 # auto startx on tty1
@@ -178,7 +178,7 @@ fi
 
 # print welcome message when last sync was unsuccessful
 if [[ -f $HOME/.sync.err ]]; then
-    printf "last sync unsuccessful (see /home/zoe/.sync.err)\n"
+    printf "last sync unsuccessful (see $HOME/.sync.err)\n"
 fi
 
 # BEGIN_KITTY_SHELL_INTEGRATION

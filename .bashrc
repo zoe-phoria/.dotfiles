@@ -117,10 +117,12 @@ fi
 # aliases
 alias ll='ls -AlF'
 alias l='ls -CF'
-if [[ $OSTYPE == "linux-gnu" ]]; then
+if [[ $OSTYPE == "linux-gnu" && -n $(cat /etc/os-release | grep "Arch Linux") ]]; then
     alias yoink='/bin/bash /home/zoe/bin/updateall.sh'
+elif [[ $OSTYPE == "linux-gnu" && -n $(cat /etc/os-release | grep "ubuntu") ]]; then
+    alias yoink == "sudo apt update && sudo apt upgrade && sudo apt autoremove"
 elif [[ $OSTYPE == "darwin"* ]]; then
-    alias yoink='brew update & brew upgrade'
+    alias yoink='brew update && brew upgrade'
 fi
 alias orp='pacman -Qtdq'
 alias mnt='sudo mount -a'

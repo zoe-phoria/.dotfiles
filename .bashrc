@@ -117,8 +117,8 @@ fi
 # aliases
 alias ll='ls -AlF'
 alias l='ls -CF'
-if [[ $OSTYPE == "linux-gnu" && -n $(cat /etc/os-release | grep "Arch Linux") ]]; then
-    alias yoink='/bin/bash $HOME/bin/updateall.sh'
+if [[ $OSTYPE == "linux-gnu" && -n $(cat /etc/os-release | grep "Arch Linux") && -f $HOME/bin/pacint ]]; then
+    alias yoink='/bin/bash $HOME/bin/pacint -u'
 elif [[ $OSTYPE == "linux-gnu" && -n $(cat /etc/os-release | grep "ubuntu") ]]; then
     alias yoink == "sudo apt update && sudo apt upgrade && sudo apt autoremove"
 elif [[ $OSTYPE == "darwin"* ]]; then

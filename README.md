@@ -16,6 +16,5 @@
 
 ## Credits
 
-- Cursor : [Apple Cursor](https://github.com/ful1e5/apple_cursor)
 - Background : [Q train by Nigel Van Wieck](https://www.nigelvanwieck.net/work/q-train/)
 - Tram Picture : [Sapporo Tram Type Yuki 10 001 from Wikipedia](https://ja.wikipedia.org/wiki/%E3%83%95%E3%82%A1%E3%82%A4%E3%83%AB:Sapporo_Tram_Type_Yuki_10_001.JPG)

@@ -16,4 +16,4 @@
 
 ## Credits
 
-- Background : [Q train by Nigel Van Wieck](https://www.nigelvanwieck.net/work/q-train/)
+- Background : [Q train by Nigel Van Wieck (1990)](https://www.nigelvanwieck.net/work/q-train/)

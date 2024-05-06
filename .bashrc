@@ -121,8 +121,8 @@ if [[ $OSTYPE == "linux-gnu" && -n $(cat /etc/os-release | grep "Arch Linux") &&
     alias yoink='/bin/bash $HOME/bin/pacint -u'
 elif [[ $OSTYPE == "linux-gnu" && -n $(cat /etc/os-release | grep "ubuntu") ]]; then
     alias yoink == "sudo apt update && sudo apt upgrade && sudo apt autoremove"
-elif [[ $OSTYPE == "darwin"* ]]; then
-    alias yoink='brew update && brew upgrade'
+elif [[ $OSTYPE == "darwin"* && -f $HOME/bin/brewint ]]; then
+    alias yoink='/bin/bash $HOME/bin/brewint -u'
 fi
 alias orp='pacman -Qtdq'
 alias mnt='sudo mount -a'

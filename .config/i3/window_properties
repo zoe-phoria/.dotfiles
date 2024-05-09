@@ -7,7 +7,7 @@ for_window [class="VirtualBox" instance="VirtualBox"] floating enable
 for_window [class="Signal" instance="signal"] floating enable
 for_window [class="Signal" instance="signal"] resize set 712 550
 for_window [class="TelegramDesktop" instance="telegram-desktop"] floating enable
-for_window [class="whatsapp-for-linux" instance="Whatsapp-for-linux"] floating enable
+for_window [class="Whatsapp-for-linux" instance="whatsapp-for-linux"] floating enable
 for_window [class="KeePassXC" instance="keepassxc"] floating enable
 for_window [class="Minecraft Launcher" instance="minecraft-launcher"] floating enable
 for_window [class="Minecraft Launcher" instance="minecraft-launcher"] resize set 640 520
@@ -31,6 +31,7 @@ for_window [class="Proton Mail Bridge" instance="protonmail-bridge"] floating en
 for_window [class="Rofi" instance="rofi"] floating enable
 for_window [class="steam" title="Friends List"] floating enable
 for_window [class="steam" title="Steam Settings"] floating enable
+no_focus   [class="steam"]
 for_window [class="gnome-text-editor" instance="gnome-text-editor"] floating enable
 for_window [class="Evince" instance="evince"] floating enable
 for_window [all] title_window_icon off

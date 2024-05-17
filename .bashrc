@@ -120,7 +120,7 @@ alias l='ls -CF'
 if [[ $OSTYPE == "linux-gnu" && -n $(cat /etc/os-release | grep "Arch Linux") && -f $HOME/bin/pacint ]]; then
     alias yoink='/bin/bash $HOME/bin/pacint -u'
 elif [[ $OSTYPE == "linux-gnu" && -n $(cat /etc/os-release | grep "ubuntu") ]]; then
-    alias yoink == "sudo apt update && sudo apt upgrade && sudo apt autoremove"
+    alias yoink = "sudo apt update && sudo apt upgrade && sudo apt autoremove"
 elif [[ $OSTYPE == "darwin"* && -f $HOME/bin/brewint ]]; then
     alias yoink='/bin/bash $HOME/bin/brewint -u'
 fi

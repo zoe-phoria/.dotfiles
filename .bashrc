@@ -54,7 +54,7 @@ fi
 
 # custom bash prompt
 if [ "$color_prompt" = yes ]; then
-    PS1="\[\e[48;5;236m\] ${arch_chroot:+($arch_chroot) }\[\033[01;32m\]\u@\h\[\033[00m\]\[\e[48;5;236m\] \[\e[0m\]:\[\033[01;36m\]\w\[\033[00m\]\$ "
+    PS1="\[\e[48;5;236m\] \[\033[01;35m\]${arch_chroot:+($arch_chroot) }\[\033[01;32m\]\u@\h\[\033[00m\]\[\e[48;5;236m\] \[\e[0m\]:\[\033[01;36m\]\w\[\033[00m\]\$ "
 else
     PS1=" ${arch_chroot:+($arch_chroot)}\u@\h:\w\$ "
 fi

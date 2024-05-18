@@ -23,7 +23,7 @@ HISTCONTROL=ignorespace:ignoredups:erasedups
 # append to the history file, don't overwrite it
 shopt -s histappend
 
-# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+# history length
 HISTSIZE=1000
 HISTFILESIZE=2000
 
@@ -43,11 +43,6 @@ fi
 if [ -z "${arch_chroot:-}" ] && [ -r /etc/arch_chroot ]; then
     arch_chroot=$(cat /etc/arch_chroot)
 fi
-
-# set a fancy prompt (non-color, unless we know we "want" color)
-case "$TERM" in
-    xterm-color|*-256color) color_prompt=yes;;
-esac
 
 # test for color support
 if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
@@ -104,19 +99,14 @@ export EDITOR=$VISUAL
 # add ~/bin to PATH
 export PATH=$PATH:$HOME/bin
 
-# some shortcuts for ip adresses
-export nas=192.168.0.3
-export pi=192.168.0.2
-export router=192.168.0.1
-
 # include ~/.bash_aliases
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
 # aliases
-alias ll='ls -AlF'
-alias l='ls -CF'
+alias :q='exit'
+alias :qa='exit'
 if [[ $OSTYPE == "linux-gnu" && -n $(cat /etc/os-release | grep "Arch Linux") && -f $HOME/bin/pacint ]]; then
     alias yoink='/bin/bash $HOME/bin/pacint -u'
 elif [[ $OSTYPE == "linux-gnu" && -n $(cat /etc/os-release | grep "ubuntu") ]]; then
@@ -127,8 +117,6 @@ fi
 alias mnt='sudo mount -a'
 alias pi='ssh ubuntu@192.168.0.2 -p 5022'
 alias nas='ssh athena@192.168.0.3 -p 5022'
-alias :q='exit'
-alias :qa='exit'
 alias unouploadasp='arduino-cli compile -v -b arduino:avr:uno -u -P usbasp '
 alias nanouploadasp='arduino-cli compile -v -b arduino:avr:nano -u -P usbasp '
 alias unoupload='arduino-cli compile -v -b arduino:avr:uno -u'
@@ -139,7 +127,6 @@ alias doccat='odt2txt'
 alias hst="history | fzf --tac | cut -c 8- | sed -Ez '$ s/\n+$//' | tr -d '\n' | xclip -sel c"
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"' # add && alert to long commands
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME'
-# include ranger_cd
 if [ -f /usr/share/doc/ranger/examples/shell_automatic_cd.sh ]; then
     . /usr/share/doc/ranger/examples/shell_automatic_cd.sh
     alias ranger='ranger_cd'
@@ -158,7 +145,7 @@ if [[ -n $(pgrep xinit) ]]; then
     fi
 fi
 
-# print welcome message when last sync was unsuccessful
+# print welcome message when last sync (syncDocs.sh/syncPass.sh) was unsuccessful
 if [[ -f $HOME/.sync.err ]]; then
     printf "last sync unsuccessful (see $HOME/.sync.err)\n"
 fi

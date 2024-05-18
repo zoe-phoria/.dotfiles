@@ -145,11 +145,6 @@ if [ -f /usr/share/doc/ranger/examples/shell_automatic_cd.sh ]; then
     alias ranger='ranger_cd'
 fi
 
-# include additional config files
-if [ -f $HOME/.config/wifi-aliases ]; then
-    . $HOME/.config/wifi-aliases
-fi
-
 # auto startx on tty1
 if [[ -z $(pgrep gdm) && -z "${DISPLAY}" && "${XDG_VTNR}" -eq 1 ]]; then
   exec startx

@@ -74,7 +74,7 @@ export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quo
 
 # autocomplete
 if [[ -f /usr/share/bash-completion/bash_completion ]]; then
-    . /usr/share/bash-completion/bash_completion
+    source /usr/share/bash-completion/bash_completion
 fi
 
 # homebrew autocomplete (only on macos)
@@ -101,7 +101,7 @@ export PATH=$PATH:$HOME/bin
 
 # include ~/.bash_aliases
 if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
+    source ~/.bash_aliases
 fi
 
 # aliases
@@ -128,7 +128,7 @@ alias hst="history | fzf --tac | cut -c 8- | sed -Ez '$ s/\n+$//' | tr -d '\n' |
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"' # add && alert to long commands
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME'
 if [ -f /usr/share/doc/ranger/examples/shell_automatic_cd.sh ]; then
-    . /usr/share/doc/ranger/examples/shell_automatic_cd.sh
+    source /usr/share/doc/ranger/examples/shell_automatic_cd.sh
     alias ranger='ranger_cd'
 fi
 

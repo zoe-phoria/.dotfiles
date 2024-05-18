@@ -140,11 +140,15 @@ exec --no-startup-id setxkbmap us -variant intl
     bindsym $mod+Shift+Right move right
     
 
-    # Alt+Tab or Super+Tab(mouse thumb button) to open rofi window mode
-    bindsym Mod1+Tab exec rofi -mode window -show window
-    bindsym $mod+Tab exec rofi -mode window -show window
+    # Alt+Tab or Super+Shift+Tab to open rofi window mode
+    bindsym $mod+Shift+Tab exec rofi -mode window -show window
+    bindsym Mod1+Shift+Tab exec rofi -mode window -show window
 
-    # click of hover to focus window
+    # Atl+Tab or Super+Tab (mx master mouse thumb button)
+    bindsym $mod+Tab focus right
+    bindsym Mod1+Tab focus right
+
+    # click or hover to focus window
     focus_follows_mouse no
 
 #

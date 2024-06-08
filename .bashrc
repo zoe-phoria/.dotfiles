@@ -115,8 +115,8 @@ elif [[ $OSTYPE == "darwin"* && -f $HOME/bin/brewint ]]; then
     alias yoink='/bin/bash $HOME/bin/brewint -u'
 fi
 alias mnt='sudo mount -a'
-alias pi='ssh ubuntu@192.168.0.2 -p 5022'
-alias nas='ssh athena@192.168.0.3 -p 5022'
+alias pi='kitten ssh ubuntu@192.168.0.2 -p 5022'
+alias nas='kitten ssh athena@192.168.0.3 -p 5022'
 alias unouploadasp='arduino-cli compile -v -b arduino:avr:uno -u -P usbasp '
 alias nanouploadasp='arduino-cli compile -v -b arduino:avr:nano -u -P usbasp '
 alias unoupload='arduino-cli compile -v -b arduino:avr:uno -u'

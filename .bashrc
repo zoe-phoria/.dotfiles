@@ -117,6 +117,7 @@ fi
 alias mnt='sudo mount -a'
 alias pi='kitten ssh ubuntu@192.168.0.2 -p 5022'
 alias nas='kitten ssh athena@192.168.0.3 -p 5022'
+alias ssh='kitten ssh'
 alias unouploadasp='arduino-cli compile -v -b arduino:avr:uno -u -P usbasp '
 alias nanouploadasp='arduino-cli compile -v -b arduino:avr:nano -u -P usbasp '
 alias unoupload='arduino-cli compile -v -b arduino:avr:uno -u'

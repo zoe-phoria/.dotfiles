@@ -131,7 +131,6 @@ set shiftround
 set smarttab
 set autoindent
 
-
 " syntastic settings
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -226,4 +225,5 @@ if !(&diff)     " disable minimap in diff mode
 endif
 Plug 'fladson/vim-kitty'
 Plug 'luochen1990/rainbow'
+Plug 'stevearc/vim-arduino'
 call plug#end()

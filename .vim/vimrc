@@ -131,6 +131,7 @@ set shiftround
 set smarttab
 set autoindent
 
+
 " syntastic settings
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -218,7 +219,6 @@ endif
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'machakann/vim-highlightedyank'
-Plug 'stevearc/vim-arduino'
 Plug 'jiangmiao/auto-pairs'
 Plug 'yggdroot/indentline'
 if !(&diff)     " disable minimap in diff mode

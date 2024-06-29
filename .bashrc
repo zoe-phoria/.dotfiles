@@ -99,6 +99,9 @@ export EDITOR=$VISUAL
 # add ~/bin to PATH
 export PATH=$PATH:$HOME/bin
 
+# set ssh auth socket
+export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+
 # include ~/.bash_aliases
 if [ -f ~/.bash_aliases ]; then
     source ~/.bash_aliases

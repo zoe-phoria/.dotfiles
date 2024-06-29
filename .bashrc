@@ -109,18 +109,20 @@ alias :q='exit'
 alias :qa='exit'
 if [[ $OSTYPE == "linux-gnu" && -n $(cat /etc/os-release | grep "Arch Linux") && -f $HOME/bin/pacint ]]; then
     alias yoink='/bin/bash $HOME/bin/pacint -u'
-elif [[ $OSTYPE == "linux-gnu" && -n $(cat /etc/os-release | grep "ubuntu") ]]; then
+elif [[ $OSTYPE == "linux-gnu" && -n $(cat /etc/os-release | grep "debian") ]]; then
     alias yoink='sudo apt update && sudo apt upgrade && sudo apt autoremove'
 elif [[ $OSTYPE == "darwin"* && -f $HOME/bin/brewint ]]; then
     alias yoink='/bin/bash $HOME/bin/brewint -u'
 fi
 alias mnt='sudo mount -a'
 if [[ $TERM == "xterm-kitty" ]]; then
-    alias pi='kitten ssh ubuntu@192.168.0.2 -p 5022'
+    alias pi3='kitten ssh ubuntu@192.168.0.2 -p 5022'
+    alias pi4='kitten ssh zoe@192.168.0.5 -p 5022'
     alias nas='kitten ssh athena@192.168.0.3 -p 5022'
     alias ssh='kitten ssh'
 else
-    alias pi='ssh ubuntu@192.168.0.2 -p 5022'
+    alias pi3='ssh ubuntu@192.168.0.2 -p 5022'
+    alias pi4='ssh zoe@192.168.0.5 -p 5022'
     alias nas='ssh athena@192.168.0.3 -p 5022'
 fi
 alias unouploadasp='arduino-cli compile -v -b arduino:avr:uno -u -P usbasp '

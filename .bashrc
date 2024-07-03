@@ -110,12 +110,12 @@ fi
 # aliases
 alias :q='exit'
 alias :qa='exit'
-if [[ -n $(cat /etc/os-release | grep "Arch Linux") && -f $HOME/bin/pacint ]]; then
+if [[ $OSTYPE == "darwin"* && -f $HOME/bin/brewint ]]; then
+    alias yoink='/bin/bash $HOME/bin/brewint -u'
+elif [[ -n $(cat /etc/os-release | grep "Arch Linux") && -f $HOME/bin/pacint ]]; then
     alias yoink='/bin/bash $HOME/bin/pacint -u'
 elif [[ -n $(cat /etc/os-release | grep "debian") ]]; then
     alias yoink='sudo apt update && sudo apt upgrade && sudo apt autoremove'
-elif [[ $OSTYPE == "darwin"* && -f $HOME/bin/brewint ]]; then
-    alias yoink='/bin/bash $HOME/bin/brewint -u'
 fi
 alias mnt='sudo mount -a'
 if [[ $TERM == "xterm-kitty" ]]; then

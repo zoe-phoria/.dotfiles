@@ -102,11 +102,6 @@ export PATH=$PATH:$HOME/bin
 # set ssh auth socket
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 
-# include ~/.bash_aliases
-if [ -f ~/.bash_aliases ]; then
-    source ~/.bash_aliases
-fi
-
 # aliases
 alias :q='exit'
 alias :qa='exit'
@@ -118,16 +113,6 @@ elif [[ -n $(cat /etc/os-release | grep "debian") ]]; then
     alias yoink='sudo apt update && sudo apt upgrade && sudo apt autoremove'
 fi
 alias mnt='sudo mount -a'
-if [[ $TERM == "xterm-kitty" ]]; then
-    alias pi3='kitten ssh ubuntu@192.168.0.2 -p 5022'
-    alias pi4='kitten ssh zoe@192.168.0.5 -p 5022'
-    alias nas='kitten ssh athena@192.168.0.3 -p 5022'
-    alias ssh='kitten ssh'
-else
-    alias pi3='ssh ubuntu@192.168.0.2 -p 5022'
-    alias pi4='ssh zoe@192.168.0.5 -p 5022'
-    alias nas='ssh athena@192.168.0.3 -p 5022'
-fi
 alias unouploadasp='arduino-cli compile -v -b arduino:avr:uno -u -P usbasp '
 alias nanouploadasp='arduino-cli compile -v -b arduino:avr:nano -u -P usbasp '
 alias unoupload='arduino-cli compile -v -b arduino:avr:uno -u'
@@ -142,6 +127,9 @@ alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME'
 if [ -f /usr/share/doc/ranger/examples/shell_automatic_cd.sh ]; then
     source /usr/share/doc/ranger/examples/shell_automatic_cd.sh
     alias ranger='ranger_cd'
+fi
+if [ -f $HOME/.ssh_alias ]; then
+    source $HOME/.ssh_alias
 fi
 
 # auto startx on tty1

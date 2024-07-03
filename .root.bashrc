@@ -22,7 +22,7 @@ export EDITOR=$VISUAL
 if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
     # if tput setaf works it can probably do color
     color_prompt=yes
-    else
+else
     color_prompt=no
 fi
 

@@ -4,5 +4,5 @@ Version=1.0
 Name=Proton Drive
 Comment=Mount Proton Drive to $HOME/protondrive/
 Exec=/bin/bash -c "rclone mount proton: $HOME/protondrive/ &"
-Icon=protondrive
+Icon=/usr/share/icons/Adwaita/scalable/places/network-server.svg
 Categories=Utility

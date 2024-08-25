@@ -61,10 +61,6 @@ exec --no-startup-id feh --bg-fill /home/zoe/qtrain.jpg
 exec --no-startup-id xset s off -dpms
 # set resolution with xrandr
 exec --no-startup-id /bin/bash $HOME/.config/i3/screens.sh
-# set keymap
-exec --no-startup-id setxkbmap us -variant intl
-# enable touchpad tapping
-# exec xinput set-prop "Microsoft Surface Type Cover Touchpad" "libinput Tapping Enabled" 1
 
 #
 # Key bindings

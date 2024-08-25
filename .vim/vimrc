@@ -60,7 +60,7 @@ map <leader>t :NERDTree<CR>
 " terminal shortcut and size
 command B terminal
 map <leader>b :terminal<CR>
-set termwinsize=5x0
+set termwinsize=10x0
 
 " search
 " highlight

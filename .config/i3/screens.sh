@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# fallback uses all connected monitors alphabetically left-to-right
+# fallback uses all connected monitors at max resolution and refresh rate alphabetically left-to-right
 last_monitor=
 for monitor in $(xrandr | grep -w 'connected' | awk '{print $1}'); do
     if [[ -z last_monitor ]]; then

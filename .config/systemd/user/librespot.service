@@ -7,7 +7,7 @@ Wants=network-online.target
 After=network-online.target
 
 [Service]
-ExecStart=/home/zoe/builds/librespot/target/release/librespot -n "Hifiberry" -b 320 -c ./cache --initial-volume 70 --device-type avr --zeroconf-port 1234
+ExecStart=/home/zoe/builds/librespot/target/release/librespot -n "HifiBerry" -b 320 -c ./cache --initial-volume 70 --device-type avr --zeroconf-port 1234
 Restart=always
 RestartSec=12
 

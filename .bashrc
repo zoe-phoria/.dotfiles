@@ -104,7 +104,7 @@ if [[ $OSTYPE == "darwin"* && -d /usr/local/Cellar/rustup/1.27.1_1/bin/ ]]; then
 fi
 
 # include rust binaries on linux
-if [[ $OSTYPE == "linux-gnu && "-f $HOME/.cargo/env ]]; then
+if [[ $OSTYPE == "linux-gnu" && -f $HOME/.cargo/env ]]; then
     . "$HOME/.cargo/env"
 fi
 

@@ -103,6 +103,11 @@ if [[ $OSTYPE == "darwin"* && -d /usr/local/Cellar/rustup/1.27.1_1/bin/ ]]; then
     export PATH=$PATH:/usr/local/Cellar/rustup/1.27.1_1/bin
 fi
 
+# include rust binaries on linux
+if [[ $OSTYPE == "linux-gnu && "-f $HOME/.cargo/env ]]; then
+    . "$HOME/.cargo/env"
+fi
+
 # set ssh auth socket
 export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 

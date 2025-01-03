@@ -42,6 +42,7 @@ set $browser firefox
 set $menu rofi -modi drun -show drun -i
 # set $menu_path rofi -normal-window -show run
 set $menu_path rofi -show run
+bindsym $mod+Mod1+d exec SUDO_ASKPASS=$HOME/.config/i3/rofi-repeat.sh rofi -show drun -run-command "sudo -A {cmd}"
 
 #
 # autostart stuff

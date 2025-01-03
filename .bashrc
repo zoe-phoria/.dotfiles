@@ -72,6 +72,11 @@ fi
 # colored GCC warnings and errors
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
+# remove yay make dependencies by default
+if [ -x /usr/bin/yay ]; then
+    alias yay='yay --removemake'
+fi
+
 # autocomplete
 if [[ -f /usr/share/bash-completion/bash_completion ]]; then
     source /usr/share/bash-completion/bash_completion

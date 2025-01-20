@@ -148,7 +148,7 @@ fi
 
 # auto startx on tty1
 if [[ -z $(pgrep gdm) && -z "${DISPLAY}" && "${XDG_VTNR}" -eq 1 ]]; then
-  exec startx
+  exec startx -- -keeptty > /tmp/.xorg.log 2>&1
 fi
 
 # auto start GNOME keyring with xinit

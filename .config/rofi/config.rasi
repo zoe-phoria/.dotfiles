@@ -40,7 +40,7 @@
 window {
     background-color: @background;
     border:           2;
-    padding:          8;
+    padding:          6 8 8;
     border-radius:   18;
     width:          45%;
     height:         35%;
@@ -127,9 +127,9 @@ button.selected {
     text-color:       @selected-normal-foreground;
 }
 inputbar {
-    spacing:    4;
+    spacing:    0;
     text-color: @normal-foreground;
-    padding:    4px ;
+    padding:    6px ;
 }
 case-indicator {
     spacing:    0;
@@ -143,8 +143,11 @@ prompt {
     spacing:    0;
     text-color: @normal-foreground;
 }
+dummy {
+    expand: true;
+}
 inputbar {
-    children:   [ prompt,textbox-prompt-colon,entry,case-indicator ];
+    children:   [ dummy,prompt,textbox-prompt-colon,entry,case-indicator,dummy ];
 }
 textbox-prompt-colon {
     expand:     false;

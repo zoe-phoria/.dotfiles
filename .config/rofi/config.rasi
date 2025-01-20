@@ -39,12 +39,15 @@
 }
 window {
     background-color: @background;
-    border:           0;
-    padding:          5;
+    border:           2;
+    padding:          8;
+    border-radius:   18;
+    width:          45%;
+    height:         35%;
 }
 mainbox {
     border:  0;
-    padding: 0;
+    padding: 2;
 }
 message {
     border:       2px 0px 0px ;
@@ -55,16 +58,16 @@ textbox {
     text-color: @foreground;
 }
 listview {
-    fixed-height: 0;
     border:       2px 0px 0px ;
     border-color: @separatorcolor;
-    spacing:      2px ;
+    spacing:      6px ;
     scrollbar:    true;
-    padding:      2px 0px 0px ;
+    padding:      6px 0px 0px ;
 }
 element {
     border:  0;
-    padding: 1px ;
+    padding: 6px ;
+    border-radius: 8px;
 }
 element-text {
     background-color: inherit;
@@ -107,8 +110,11 @@ element.alternate.active {
     text-color:       @alternate-active-foreground;
 }
 scrollbar {
-    width:        8px ;
+    background-color: @normal-background;
+    handle-color: @selected-normal-background;
+    width:        6px ;
     border:       0;
+    border-radius: 8px;
     handle-width: 16px ;
     padding:      0;
 }
@@ -121,9 +127,9 @@ button.selected {
     text-color:       @selected-normal-foreground;
 }
 inputbar {
-    spacing:    0;
+    spacing:    4;
     text-color: @normal-foreground;
-    padding:    1px ;
+    padding:    4px ;
 }
 case-indicator {
     spacing:    0;

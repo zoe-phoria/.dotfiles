@@ -16,12 +16,15 @@ for_window [class="Gnome-screenshot" instance="gnome-screenshot"] floating enabl
 for_window [class="Eog" instance="eog"] floating enable
 for_window [class="CuteCom5" instance="cutecom"] floating enable
 for_window [class="org.gnome.Nautilus" instance="org.gnome.Nautilus"] floating enable
+for_window [class="org.gnome.Nautilus" instance="org.gnome.Nautilus"] border pixel 5
 for_window [class="org.gnome.Nautilus" instance="org.gnome.Nautilus" title="Home"] resize set 860 520
 for_window [class="gnome-calculator" instance="gnome-calculator"] floating enable
+for_window [class="gnome-calculator" instance="gnome-calculator"] border pixel 5
 for_window [class="Pavucontrol" instance="pavucontrol"] floating enable
 for_window [class="Blueman-manager" instance="blueman-manager"] floating enable
 for_window [class="gnome-calendar" instance="gnome-calendar"] floating enable
 for_window [class="gnome-calendar" instance="gnome-calendar"] resize set 1100 900
+for_window [class="gnome-calendar" instance="gnome-calendar"] border pixel 5
 for_window [class="kitty" instance="kitty" title="fclip"] floating enable
 for_window [class="kitty" instance="kitty" title="shutdown-prompt.sh"] floating enable
 for_window [class="kitty" instance="kitty" title="shutdown-prompt.sh"] resize set 230 80

@@ -51,13 +51,13 @@ bindsym $mod+Mod1+d exec SUDO_ASKPASS=$HOME/.config/i3/rofi-repeat.sh rofi -show
 # start autostart entries
 exec --no-startup-id dex --autostart --environment i3
 # make symlinks in home xdg user dirs
-exec --no-startup-id /bin/bash /home/zoe/bin/xdg.sh
+exec --no-startup-id /bin/bash $HOME/bin/xdg.sh
 # start polybar
-exec --no-startup-id /bin/bash /home/zoe/.config/polybar/launch.sh
+exec --no-startup-id /bin/bash $HOME/.config/polybar/launch.sh
 # start picom window compositor
-exec --no-startup-id picom
+exec --no-startup-id picom --window-shader-fg=$HOME/.config/picom/rounded-borders.glsl
 # start feh background
-exec --no-startup-id feh --bg-fill /home/zoe/qtrain.jpg
+exec --no-startup-id feh --bg-fill $HOME/qtrain.jpg
 # disable x screensaver
 exec --no-startup-id xset s off -dpms
 # set resolution with xrandr
@@ -101,7 +101,7 @@ exec --no-startup-id /bin/bash $HOME/.config/i3/screens.sh
     bindsym $mod+Shift+p restart
 
     # prompt for shutdown
-    bindsym $mod+Shift+q exec kitty /home/zoe/bin/shutdown-prompt.sh
+    bindsym $mod+Shift+q exec kitty $HOME/bin/shutdown-prompt.sh
 
     # take a screenshot
     bindsym Print exec "gnome-screenshot -i"

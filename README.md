@@ -17,3 +17,4 @@
 ## Credits
 
 - Background : [Q train by Nigel Van Wieck (1990)](https://www.nigelvanwieck.net/work/q-train/)
+- picom shader by [Jacajack](https://github.com/Jacajack/misc/tree/master/linux/picom-rounded-borders)

@@ -37,4 +37,7 @@ fi
 
 exec i3 &&
 eval $(gnome-keyring-daemon --start)
+if [[ -x /usr/bin/udiskie ]]; then
+  exec udiskie
+fi
 export SSH_AUTH_SOCK

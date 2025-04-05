@@ -49,3 +49,10 @@ fi
 
 # aliases
 alias :q='exit'
+
+# add rust binaries from any users with homes to $PATH
+for dir in /home/*; do
+    if [[ -d $dir/.cargo/bin ]]; then
+        export PATH=$PATH:$dir/.cargo/bin
+    fi
+done

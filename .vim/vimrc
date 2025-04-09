@@ -137,7 +137,7 @@ set shiftround
 set smarttab
 set autoindent
 
-" au BufNewFile,BufRead *.py
+au BufNewFile,BufRead *.py
     \ set textwidth=79
 
 " syntastic settings

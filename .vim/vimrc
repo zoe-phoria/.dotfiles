@@ -32,6 +32,9 @@ set number
 " encoding
 set encoding=UTF-8
 
+" filetype
+set filetype=unix
+
 " maximum textwidth (1440p)
 " set textwidth=256
 
@@ -46,6 +49,8 @@ set backspace=indent,eol,start
 
 " enable syntax highlighting
 syntax on
+" python syntax highlighting
+let python_highlight_all=1
 
 " add <> to matchpairs, jump between them with %
 set matchpairs+=<:>
@@ -125,11 +130,15 @@ nnoremap gc :tabclose<cr>
 
 " tabs and spaces
 set tabstop=4
+set softtabstop=4
 set shiftwidth=4
 set expandtab
 set shiftround
 set smarttab
 set autoindent
+
+" au BufNewFile,BufRead *.py
+    \ set textwidth=79
 
 " syntastic settings
 set statusline+=%#warningmsg#
@@ -140,6 +149,16 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
+
+"python with virtualenv support
+py << EOF
+import os
+import sys
+if 'VIRTUAL_ENV' in os.environ:
+  project_base_dir = os.environ['VIRTUAL_ENV']
+  activate_this = os.path.join(project_base_dir, 'bin/activate_this.py')
+  execfile(activate_this, dict(__file__=activate_this))
+EOF
 
 " NERDcommenter
 filetype plugin on

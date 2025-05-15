@@ -32,43 +32,62 @@ HISTTIMEFORMAT="%y-%m-%d %H:%M "
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
 
-# use "**" as wildcard for paths
-if [[ $OSTYPE == linux-gnu ]]; then
-    shopt -s globstar
+export_ps1() {
+    # build the $PS1 prompt with chroot indicator, python venv indicator and colour support if possible
+
+    # set variable identifying the chroot you work in (used in prompt below) to content of /etc/arch_chroot of current chroot
+    if [ -z "${arch_chroot:-}" ] && [ -r /etc/arch_chroot ]; then
+        arch_chroot=$(cat /etc/arch_chroot)
+    fi
+
+    # disable activating python virtual environment overwriting prompt
+    VIRTUAL_ENV_DISABLE_PROMPT=1
+
+    # set variable identifying the python virtual environment you work in
+    if [ ${#VIRTUAL_ENV} -gt 0 ]; then
+        VENV_PREFIX="py_venv:"
+        VENV_SUFFIX="$(echo $VIRTUAL_ENV | awk -F '/' '{print $NF}')"
+        VENV="${VENV_PREFIX}${VENV_SUFFIX} "
+    else
+        unset VENV
+    fi
+
+    # test for color support
+    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
+        # if tput setaf works it can probably do color
+        color_prompt=yes
+    else
+        color_prompt=no
+    fi
+
+    # custom bash prompt
+    if [ "$color_prompt" = yes ]; then
+        PS1="\[\e[48;5;236m\] \[\033[01;35m\]${arch_chroot:+($arch_chroot) }$VENV\[\033[01;32m\]\u@\h\[\033[00m\]\[\e[48;5;236m\] \[\e[0m\]:\[\033[01;36m\]\w\[\033[00m\]\$ "
+    else
+        PS1=" ${arch_chroot:+($arch_chroot) }$VENV\u@\h:\w\$ "
+    fi
+
+    unset color_prompt
+}
+export_ps1
+
+# add ~/bin to PATH
+export PATH=$PATH:$HOME/bin
+# add rustup binaries to $PATH on macos
+if [[ $OSTYPE == "darwin"* && -d /usr/local/Cellar/rustup/1.27.1_1/bin/ ]]; then
+    export PATH=$PATH:/usr/local/Cellar/rustup/1.27.1_1/bin
 fi
+# include rust binaries on linux
+if [[ $OSTYPE == "linux-gnu" && -f $HOME/.cargo/env ]]; then
+    . "$HOME/.cargo/env"
+fi
+
+# set default editor
+export VISUAL=vim
+export EDITOR=$VISUAL
 
 # make less more friendly for non-text input files, see lesspipe(1)
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
-
-# set variable identifying the chroot you work in (used in prompt below) to content of /etc/arch_chroot of current chroot
-if [ -z "${arch_chroot:-}" ] && [ -r /etc/arch_chroot ]; then
-    arch_chroot=$(cat /etc/arch_chroot)
-fi
-
-# set variable identifying the python virtual environment you work in
-if [ ${#VIRTUAL_ENV} -gt 0 ]; then
-    VENV_PREFIX="py_venv:"
-    VENV_SUFFIX="$(echo $VIRTUAL_ENV | awk -F '/' '{print $NF}')"
-    VENV="${VENV_PREFIX}${VENV_SUFFIX} "
-else
-    unset VENV
-fi
-
-# test for color support
-if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
-    # if tput setaf works it can probably do color
-    color_prompt=yes
-else
-    color_prompt=no
-fi
-
-# custom bash prompt
-if [ "$color_prompt" = yes ]; then
-    PS1="\[\e[48;5;236m\] \[\033[01;35m\]${arch_chroot:+($arch_chroot) }$VENV\[\033[01;32m\]\u@\h\[\033[00m\]\[\e[48;5;236m\] \[\e[0m\]:\[\033[01;36m\]\w\[\033[00m\]\$ "
-else
-    PS1=" ${arch_chroot:+($arch_chroot)}\u@\h:\w\$ "
-fi
-unset color_prompt
 
 # enable color and hyperlink support of ls and grep
 if [ -x /usr/bin/dircolors ]; then
@@ -82,12 +101,12 @@ fi
 # colored GCC warnings and errors
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
 
-# remove yay make dependencies by default
-if [ -x /usr/bin/yay ]; then
-    alias yay='yay --removemake'
+# use "**" as wildcard for paths
+if [[ $OSTYPE == linux-gnu ]]; then
+    shopt -s globstar
 fi
 
-# autocomplete
+# bash autocomplete
 if [[ -f /usr/share/bash-completion/bash_completion ]]; then
     source /usr/share/bash-completion/bash_completion
 fi
@@ -107,20 +126,9 @@ if [[ $OSTYPE == "darwin"* ]]; then
     fi
 fi
 
-# set default editor
-export VISUAL=vim
-export EDITOR=$VISUAL
-
-# add ~/bin to PATH
-export PATH=$PATH:$HOME/bin
-# add rustup binaries to $PATH on macos
-if [[ $OSTYPE == "darwin"* && -d /usr/local/Cellar/rustup/1.27.1_1/bin/ ]]; then
-    export PATH=$PATH:/usr/local/Cellar/rustup/1.27.1_1/bin
-fi
-
-# include rust binaries on linux
-if [[ $OSTYPE == "linux-gnu" && -f $HOME/.cargo/env ]]; then
-    . "$HOME/.cargo/env"
+# yay removes make dependencies by default
+if [ -x /usr/bin/yay ]; then
+    alias yay='yay --removemake'
 fi
 
 # set ssh auth socket
@@ -148,7 +156,19 @@ alias hst="history | fzf --tac | cut -c 8- | sed -Ez '$ s/\n+$//' | tr -d '\n' |
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"' # add && alert to long commands
 alias uncomment-all-mirrors="sed -i 's/^#Server/Server/' /etc/pacman.d/mirrorlist.pacnew"
 alias dotfiles='/usr/bin/git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME'
-alias activate_venv='if [[ -f bin/activate ]]; then source bin/activate && source ~/.bashrc; else printf "not in a python virtual environment root\n"; fi'
+# unalias deactivate when not in a venv already because if it's set the bin/activate script in a python venv will fail
+if [[ ${#VIRTUAL_ENV} -eq 0 ]]; then
+    unalias deactivate 2>/dev/null
+fi
+activate_venv() {
+    if [[ -f bin/activate ]]; then
+        source bin/activate
+        export_ps1
+    else
+        printf "not in a python virtual environment root\n"
+    fi
+    alias deactivate="deactivate && export_ps1 && unalias deactivate"
+}
 if [ -f /usr/share/doc/ranger/examples/shell_automatic_cd.sh ]; then
     source /usr/share/doc/ranger/examples/shell_automatic_cd.sh
     alias ranger='ranger_cd'

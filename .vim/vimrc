@@ -109,6 +109,13 @@ set undoreload=10000 "maximum number lines to save for undo on a buffer reload
 colorscheme default
 set background=dark
 
+" set cursorline highlighting
+set cursorline
+hi cursorline cterm=none
+hi cursorline ctermbg=235
+hi cursorlinenr cterm=none
+hi cursorlinenr ctermbg=235
+
 " seperator style
 set fillchars+=vert:\ 
 highlight VertSplit ctermbg=DarkGray ctermfg=DarkGray

@@ -152,8 +152,8 @@ let g:syntastic_c_checker = ['avr-gcc', 'gcc', 'make']
 " disable YouCompleteMe checker
 let g:ycm_show_diagnostics_ui = 0
 
-" load filetype plugins
-filetype plugin on
+" load filetype plugins and autoindent directives
+filetype plugin indent on
 
 " async update for sy
 " default updatetime 4000ms is not good for async update

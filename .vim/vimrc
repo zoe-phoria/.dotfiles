@@ -32,9 +32,6 @@ set number
 " encoding
 set encoding=UTF-8
 
-" maximum textwidth (1440p)
-" set textwidth=256
-
 " enable mouse
 set mouse=a
 
@@ -43,9 +40,6 @@ set ttyfast
 
 " fix some backspace inconveniences
 set backspace=indent,eol,start
-
-" enable syntax highlighting
-syntax on
 
 " add <> to matchpairs, jump between them with %
 set matchpairs+=<:>
@@ -138,6 +132,61 @@ set shiftround
 set smarttab
 set autoindent
 
+" async update for sy
+" default updatetime 4000ms is not good for async update
+set updatetime=100
+
+"          __              _                    __  _
+"    ___  / /_ _____ _____(_)__    ___ ___ ____/ /_(_)__  ___
+"   / _ \/ / // / _ `/___/ / _ \  (_-</ -_) __/ __/ / _ \/ _ \
+"  / .__/_/\_,_/\_, /   /_/_//_/ /___/\__/\__/\__/_/\___/_//_/
+" /_/          /___/
+
+" vim-plug autoinstall
+if empty(glob('~/.vim/autoload/plug.vim'))
+    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+" plug-ins
+call plug#begin('~/.vim/plugged')
+Plug 'preservim/nerdtree'
+Plug 'itchyny/lightline.vim'
+Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-surround'
+Plug 'vim-scripts/VimCompletesMe'
+Plug 'sheerun/vim-polyglot'
+Plug 'vim-syntastic/syntastic'
+if has('nvim') || has('patch-8.0.902')
+    Plug 'mhinz/vim-signify'
+else
+    Plug 'mhinz/vim-signify', { 'branch': 'legacy' }
+endif
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'machakann/vim-highlightedyank'
+Plug 'jiangmiao/auto-pairs'
+Plug 'yggdroot/indentline'
+if !(&diff)     " disable minimap in diff mode
+    Plug 'wfxr/minimap.vim'
+endif
+Plug 'fladson/vim-kitty'
+Plug 'luochen1990/rainbow'
+Plug 'stevearc/vim-arduino'
+Plug 'rust-lang/rust.vim'
+call plug#end()
+
+" plug-in settings (and load-after-plugin settings)
+
+" load filetype plugins and autoindent directives
+filetype plugin indent on
+
+" enable internal syntax highlighting
+syntax enable
+
+" line width for py, c, rust
+au BufRead,BufNewFile *.py,*.c,*.h,*.ino,*.rs set textwidth=99
+
 " syntastic settings
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
@@ -151,13 +200,6 @@ let g:syntastic_c_checker = ['avr-gcc', 'gcc', 'make']
 
 " disable YouCompleteMe checker
 let g:ycm_show_diagnostics_ui = 0
-
-" load filetype plugins and autoindent directives
-filetype plugin indent on
-
-" async update for sy
-" default updatetime 4000ms is not good for async update
-set updatetime=100
 
 " ensure lightline.vim being used
 set laststatus=2
@@ -185,13 +227,6 @@ let g:NERDTreeWinSize=21
 " indentline config
 let g:indentLine_char = '┊'
 
-" vim-plug autoinstall
-if empty(glob('~/.vim/autoload/plug.vim'))
-    silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
-
 " rainbow config
 " toggle with :RainbowToggle or <leader>r
 map <leader>r :RainbowToggle<CR> 
@@ -207,31 +242,3 @@ let g:rainbow_conf = {
 \		},
 \   }
 \}
-
-" vim-plug
-call plug#begin('~/.vim/plugged')
-Plug 'preservim/nerdtree'
-Plug 'itchyny/lightline.vim'
-Plug 'tpope/vim-eunuch'
-Plug 'tpope/vim-surround'
-Plug 'vim-scripts/VimCompletesMe'
-Plug 'sheerun/vim-polyglot'
-Plug 'vim-syntastic/syntastic'
-if has('nvim') || has('patch-8.0.902')
-    Plug 'mhinz/vim-signify'
-else
-    Plug 'mhinz/vim-signify', { 'branch': 'legacy' }
-endif
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-Plug 'machakann/vim-highlightedyank'
-Plug 'jiangmiao/auto-pairs'
-Plug 'yggdroot/indentline'
-if !(&diff)     " disable minimap in diff mode
-    Plug 'wfxr/minimap.vim'
-endif
-Plug 'fladson/vim-kitty'
-Plug 'luochen1990/rainbow'
-Plug 'stevearc/vim-arduino'
-Plug 'rust-lang/rust.vim'
-call plug#end()

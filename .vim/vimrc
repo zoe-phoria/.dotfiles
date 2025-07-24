@@ -149,6 +149,9 @@ let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 let g:syntastic_c_checker = ['avr-gcc', 'gcc', 'make']
 
+" disable YouCompleteMe checker
+let g:ycm_show_diagnostics_ui = 0
+
 " NERDcommenter
 filetype plugin on
 " Use compact syntax for prettified multi-line comments
@@ -214,7 +217,6 @@ Plug 'itchyny/lightline.vim'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-surround'
 Plug 'vim-scripts/VimCompletesMe'
-" Plug 'ycm-core/YouCompleteMe'
 Plug 'sheerun/vim-polyglot'
 Plug 'vim-syntastic/syntastic'
 Plug 'preservim/nerdcommenter'

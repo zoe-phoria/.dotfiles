@@ -152,10 +152,8 @@ let g:syntastic_c_checker = ['avr-gcc', 'gcc', 'make']
 " disable YouCompleteMe checker
 let g:ycm_show_diagnostics_ui = 0
 
-" NERDcommenter
+" load filetype plugins
 filetype plugin on
-" Use compact syntax for prettified multi-line comments
-let g:NERDCompactSexyComs = 1
 
 " async update for sy
 " default updatetime 4000ms is not good for async update
@@ -219,7 +217,6 @@ Plug 'tpope/vim-surround'
 Plug 'vim-scripts/VimCompletesMe'
 Plug 'sheerun/vim-polyglot'
 Plug 'vim-syntastic/syntastic'
-Plug 'preservim/nerdcommenter'
 if has('nvim') || has('patch-8.0.902')
     Plug 'mhinz/vim-signify'
 else

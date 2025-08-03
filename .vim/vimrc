@@ -49,11 +49,11 @@ let mapleader = ","
 
 " nerdtree shortcut
 command T NERDTree
-map <leader>t :NERDTree<CR>
+nnoremap <leader>t :NERDTree<CR>
 
 " terminal shortcut and size
 command B terminal
-map <leader>b :terminal<CR>
+nnoremap <leader>b :terminal<CR>
 set termwinsize=10x0
 
 " search
@@ -66,7 +66,7 @@ set ignorecase
 " dont ignore case when uppercase is used
 set smartcase
 " remove search highlighting
-map \ :nohlsearch<CR>:call minimap#vim#ClearColorSearch()<CR>
+nnoremap \ :nohlsearch<CR>:call minimap#vim#ClearColorSearch()<CR>
 
 " clipboard handling
 " copy visual selction to clipboard
@@ -76,19 +76,14 @@ elseif has('unix') && !empty(glob('/usr/bin/xclip'))
     vmap <leader>Y :w !xclip -selection c<CR><CR>
 endif
 
-" folding
-command Fold setlocal foldmethod=syntax
-command Foldoff setlocal foldmethod=marker
-command Fc foldclose
-
 " fzf on current buffer
 command! -nargs=* F call fzf#vim#lines(<q-args>)
-map <leader>f :F<CR>
+nnoremap <leader>f :F<CR>
 
 " splits
 set splitbelow
-map <leader>s :vsplit<CR>
-map <leader>S :split<CR>
+nnoremap <leader>s :vsplit<CR>
+nnoremap <leader>S :split<CR>
 
 " persistent undo
 if !isdirectory($HOME."/.dotfiles/vim/undodir")
@@ -152,7 +147,6 @@ endif
 call plug#begin('~/.vim/plugged')
 Plug 'preservim/nerdtree'
 Plug 'itchyny/lightline.vim'
-Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-surround'
 Plug 'vim-scripts/VimCompletesMe'
 Plug 'sheerun/vim-polyglot'
@@ -185,7 +179,13 @@ filetype plugin indent on
 syntax enable
 
 " line width for py, c, rust
-au BufRead,BufNewFile *.py,*.c,*.h,*.ino,*.rs set textwidth=99
+autocmd BufRead,BufNewFile *.py,*.c,*.h,*.ino,*.rs set textwidth=99
+" folding for py, c, rust
+autocmd BufRead,BufNewFile *.py,*.c,*.h,*.ino,*.rs set foldmethod=syntax  | set foldlevel=20
+" more folding stuff
+command FoldOff setlocal foldmethod=marker
+nnoremap <leader>o :foldopen<CR>
+nnoremap <leader>c :foldclose<CR>
 
 " syntastic settings
 set statusline+=%#warningmsg#
@@ -197,6 +197,9 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
 let g:syntastic_c_checker = ['avr-gcc', 'gcc', 'make']
+
+" syntastic default passive on ino files bc of spurious errors
+autocmd BufRead,BufNewFile *ino let g:syntastic_mode_map = { 'mode': 'passive' }
 
 " disable YouCompleteMe checker
 let g:ycm_show_diagnostics_ui = 0
@@ -214,7 +217,7 @@ let g:minimap_auto_start=1
 let g:minimap_auto_start_win_enter=1
 let g:minimap_highlight_search=1
 let g:minimap_highlight_range=1
-map <Leader>mm :MinimapToggle<CR>
+nnoremap <Leader>mm :MinimapToggle<CR>
 
 " NERDTree settings
 let g:NERDTreeDirArrowExpandable = '▸'
@@ -229,7 +232,7 @@ let g:indentLine_char = '┊'
 
 " rainbow config
 " toggle with :RainbowToggle or <leader>r
-map <leader>r :RainbowToggle<CR> 
+nnoremap <leader>r :RainbowToggle<CR> 
 let g:rainbow_active = 0
 let g:rainbow_conf = {
 \	'ctermfgs': ['gray', 'magenta', 'cyan', 'yellow', 'green'],

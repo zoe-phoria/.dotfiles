@@ -38,6 +38,7 @@ no_focus   [class="steam"]
 for_window [class="gnome-text-editor" instance="gnome-text-editor"] floating enable
 for_window [class="Evince" instance="org.gnome.Evince"] floating enable
 for_window [class="thunderbird" instance="Alert"] floating enable
+for_window [class="org.gnome.FileRoller" instance="org.gnome.FileRoller"] floating enable
 for_window [all] title_window_icon off
 # workaround for issue 5149/ensure border on all windows
 for_window [all] border pixel

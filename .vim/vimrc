@@ -203,6 +203,7 @@ autocmd BufRead,BufNewFile *ino let g:syntastic_mode_map = { 'mode': 'passive' }
 
 " disable YouCompleteMe checker
 let g:ycm_show_diagnostics_ui = 0
+set completeopt-=preview
 
 " ensure lightline.vim being used
 set laststatus=2

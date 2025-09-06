@@ -161,7 +161,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'machakann/vim-highlightedyank'
 Plug 'jiangmiao/auto-pairs'
 Plug 'yggdroot/indentline'
-if !(&diff)     " disable minimap in diff mode
+if !(&diff) && (filereadable("/usr/bin/code-minimap") || filereadable("/usr/local/bin/code-minimap") || filereadable(expand("~/.cargo/bin/code-minimap")))    " disable minimap if code-minimap not installed or vim in diff mode
     Plug 'wfxr/minimap.vim'
 endif
 Plug 'fladson/vim-kitty'

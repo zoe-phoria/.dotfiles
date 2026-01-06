@@ -62,6 +62,8 @@ exec --no-startup-id feh --bg-fill $HOME/qtrain.jpg
 exec --no-startup-id xset s off -dpms
 # set resolution with xrandr
 exec --no-startup-id /bin/bash $HOME/.config/i3/screens.sh
+# keymap
+exec --no-startup-id setxkbmap us -variant altgr-intl
 
 #
 # Key bindings

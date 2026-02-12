@@ -42,7 +42,7 @@ window {
     border-color: @selected-normal-background;
     border:           5;
     padding:          6 8 8;
-    border-radius:    0;
+    border-radius:   16;
     width:          45%;
     height:         36%;
 }
@@ -118,6 +118,7 @@ scrollbar {
     border-radius: 8px;
     handle-width: 16px ;
     padding:      0;
+    handle-rounded-corners: true;
 }
 mode-switcher {
     border:       2px 0px 0px ;
